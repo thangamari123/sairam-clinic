@@ -4086,7 +4086,7 @@ body {
     flex: 0 0  100%;
   }
 }
-}
+
 @media (max-width: 600px) {
   .testi-card {
     min-width: 100%;
@@ -4260,11 +4260,6 @@ body {
     gap: 20px;
   }
 }
-. m o b i l e - b o t t o m - n a v 
- 
-   d i s p l a y :   n o n e ;   
- 
- 
 
 /* ─────────── MOBILE BOTTOM NAV ─────────── */
 .mobile-bottom-nav {
