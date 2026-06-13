@@ -1,14 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Online Consultation | Sairam Dental Care</title>
+  <title>Invisalign Treatment | Sairam Dental Care</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=4.0" />
+  <style>
+    /* Premium Invisalign Design Styles */
+    .invisalign-hero {
+      position: relative;
+      padding: 140px 0 60px;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      overflow: hidden;
+    }
+
+    .invisalign-hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .inv-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .inv-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .inv-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #0d1b3e;
+      margin-bottom: 24px;
+    }
+
+    .inv-title span {
+      background: linear-gradient(135deg, #1a4fa0 0%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .inv-desc {
+      font-size: 1.15rem;
+      color: #64748b;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .inv-hero-tag {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(14, 165, 233, 0.1);
+      color: #0ea5e9;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .inv-hero-img-wrap {
+      position: relative;
+    }
+
+    .inv-hero-img {
+      width: 100%;
+      border-radius: 30px;
+      box-shadow: 0 24px 64px rgba(14, 165, 233, 0.2);
+    }
+
+
+    .inv-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      margin-bottom: 30px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      color: #1a4fa0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .inv-back-btn:hover {
+      background: white;
+      transform: translateX(-5px);
+      box-shadow: 0 8px 25px rgba(14, 165, 233, 0.15);
+      color: #0ea5e9;
+    }
+
+    /* Overview Section */
+    .inv-overview-section {
+      padding: 60px 0 20px;
+      background: white;
+    }
+
+    .inv-overview-list {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .inv-overview-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: #f8fafc;
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      transition: transform 0.3s ease;
+    }
+
+    .inv-overview-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(14, 165, 233, 0.06);
+    }
+
+    .inv-overview-icon {
+      color: #0ea5e9;
+      font-size: 1.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .inv-overview-text {
+      font-size: 1.1rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    /* Bento Section */
+    .inv-bento-section {
+      padding: 60px 0;
+      background: white;
+    }
+
+    .inv-section-title {
+      text-align: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #0d1b3e;
+    }
+
+    .inv-section-sub {
+      text-align: center;
+      color: #64748b;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .inv-bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 280px);
+      gap: 24px;
+    }
+
+    .bento-card {
+      background: #f8fafc;
+      border-radius: 32px;
+      padding: 40px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 48px rgba(14, 165, 233, 0.08);
+      border-color: rgba(14, 165, 233, 0.3);
+    }
+
+    .bento-large {
+      grid-column: span 2;
+      background: linear-gradient(135deg, #0d1b3e 0%, #1a2f5e 100%);
+      color: white;
+      border: none;
+    }
+
+    .bento-large::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .bento-large .bento-title,
+    .bento-large .bento-desc { text-align: justify;
+      color: white;
+    }
+
+    .bento-large .bento-desc { text-align: justify;
+      opacity: 0.9;
+      font-size: 1.1rem;
+      max-width: 80%;
+    }
+
+    .bento-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: auto;
+    }
+
+    .bento-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .bento-icon.blue {
+      background: #e0f2fe;
+      color: #0ea5e9;
+    }
+
+    .bento-icon.purple {
+      background: #f3e8ff;
+      color: #9333ea;
+    }
+
+    .bento-icon.teal {
+      background: #ccfbf1;
+      color: #0d9488;
+    }
+
+    .bento-icon.white {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .bento-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0d1b3e;
+      margin-bottom: 12px;
+      margin-top: 24px;
+    }
+
+    .bento-desc { text-align: justify;
+      color: #64748b;
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    /* How It Works Section */
+    .inv-hiw-section {
+      padding: 60px 0;
+      background: #f0f9ff;
+      text-align: center;
+    }
+
+    .inv-hiw-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .inv-hiw-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 800;
+      color: #0d1b3e;
+      margin-bottom: 24px;
+    }
+
+    .inv-hiw-desc {
+      font-size: 1.1rem;
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 50px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .inv-hiw-points {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .inv-hiw-point {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      text-align: left;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(14, 165, 233, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .inv-hiw-point:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(14, 165, 233, 0.15);
+      border-color: rgba(14, 165, 233, 0.3);
+    }
+
+    .inv-hiw-icon {
+      background: #e0f2fe;
+      color: #0ea5e9;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .inv-hiw-point-text h4 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #0d1b3e;
+      margin-bottom: 8px;
+    }
+
+    .inv-hiw-point-text p {
+      font-size: 1rem;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+
+    /* Before & After Section */
+    .inv-ba-section {
+      padding: 60px 0;
+      background: white;
+    }
+
+    .inv-ba-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #f8fafc;
+      border-radius: 30px;
+      padding: 40px;
+      border: 1px solid #e2e8f0;
+      text-align: center;
+    }
+
+    .inv-ba-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 800;
+      color: #0d1b3e;
+      margin-bottom: 30px;
+    }
+
+    .inv-ba-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .inv-ba-img-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .inv-ba-img-wrap img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .inv-ba-img-wrap:hover img {
+      transform: scale(1.05);
+    }
+
+    .inv-ba-label {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #0d1b3e;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .inv-ba-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: #0ea5e9;
+      color: white;
+      border-radius: 50%;
+      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .inv-ba-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .inv-ba-arrow {
+        transform: rotate(90deg);
+        margin: 0 auto;
+      }
+    }
+
+    /* CTA Banner */
+    .inv-cta {
+      padding: 80px 0;
+    }
+
+    .inv-cta-box {
+      background: linear-gradient(135deg, #1a4fa0 0%, #0ea5e9 100%);
+      padding: 80px 40px;
+      border-radius: 40px;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 32px 64px rgba(14, 165, 233, 0.25);
+    }
+
+    .inv-cta-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 100%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    }
+
+    .inv-cta-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .inv-cta-desc {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .inv-cta .btn {
+      background: white;
+      color: #1a4fa0;
+      font-size: 1.1rem;
+      padding: 16px 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .inv-cta .btn:hover {
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 1024px) {
+      .inv-hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .inv-bento {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .bento-large {
+        grid-column: span 1;
+      }
+
+      .timeline {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .timeline-step {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .inv-cta {
+        padding: 40px 15px;
+      }
+      .inv-cta-box {
+        padding: 40px 20px;
+        border-radius: 24px;
+      }
+      .inv-cta-desc {
+        font-size: 1rem;
+        margin-bottom: 30px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- ═══════════════ NAVBAR ═══════════════ -->
@@ -40,7 +604,7 @@
       <nav class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
         <div class="nav-dropdown-wrapper">
-          <a href="about.html" class="nav-link">About Us</a>
+          <a href="index.html#about" class="nav-link">About Us</a>
           <div class="nav-dropdown">
             <a href="dr-raghuraaman.html" class="dropdown-link">Dr. Raghuraaman</a>
             <a href="dr-nivetha.html" class="dropdown-link">Dr. Nivetha</a>
@@ -48,40 +612,219 @@
         </div>
         <a href="treatments.html" class="nav-link active">Treatments</a>
         <a href="index.html#gallery" class="nav-link">Smile Gallery</a>
-        <a href="index.html#testimonials" class="nav-link">Testimonials</a>
-        <a href="index.html#contact" class="nav-link">Contact</a>
+<a href="index.html#contact" class="nav-link">Contact</a>
+        <a href="blog.html" class="nav-link">Blog</a>
       </nav>
       <div class="nav-actions">
         <a href="appointment.html" class="btn btn-primary nav-cta">Book Appointment</a>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span>
+        </button>
       </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <nav class="mobile-nav">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="index.html#about" class="mobile-nav-link">About Us</a>
+        <a href="dr-raghuraaman.html" class="mobile-nav-link" style="padding-left: 2.5rem; font-size: 1rem; color: var(--blue-sky);">- Dr. Raghuraaman</a>
+        <a href="dr-nivetha.html" class="mobile-nav-link" style="padding-left: 2.5rem; font-size: 1rem; color: var(--blue-sky);">- Dr. Nivetha</a>
+        <a href="treatments.html" class="mobile-nav-link">Treatments</a>
+        <a href="index.html#gallery" class="mobile-nav-link">Smile Gallery</a>
+<a href="index.html#contact" class="mobile-nav-link">Contact</a>
+        <a href="blog.html" class="mobile-nav-link">Blog</a>
+        <a href="appointment.html" class="btn btn-primary mob-cta">Book Appointment</a>
+      </nav>
     </div>
   </header>
 
   <main>
-    <div class="container" style="padding-top: 140px; padding-bottom: 80px;">
-      <div class="about-card reveal">
-        <div class="about-grid" style="grid-template-columns: 1fr; text-align: center;">
-          <img src="images/treatments/Online Consultation.png" alt="Online Consultation" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 30px;">
-          <h1 style="font-family: var(--font-display); font-size: 2.5rem; color: var(--navy); margin-bottom: 20px;">Online Consultation</h1>
-          <p style="font-size: 1.1rem; line-height: 1.8; color: var(--navy-light); max-width: 800px; margin: 0 auto 30px auto;">
-            Welcome to our detailed guide on Online Consultation. At Sairam Dental Care, we provide comprehensive, state-of-the-art care tailored to your specific needs. Our specialists ensure a comfortable and pain-free experience using the latest technologies.
-            <br><br>
-            Please contact our clinic or book an appointment to discuss how this treatment can benefit you and help you achieve the perfect smile.
-          </p>
-          <a href="appointment.html" class="btn btn-primary btn-lg">Book Online Consultation Consultation &rarr;</a>
+    <!-- HERO SECTION -->
+    <section class="invisalign-hero">
+      <div class="inv-container">
+        <a href="treatments.html" class="inv-back-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="16" height="16" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+          </svg>
+          Back to Treatments
+        </a>
+        <div class="inv-hero-grid">
+          <div class="inv-hero-text">
+            <div class="inv-hero-tag">Online Consultation</div>
+            <h1 class="inv-title">Expert Dental Care from <span>Home</span></h1>
+            <p class="inv-desc">Connect with our experienced dentists through a secure, user-friendly platform for professional guidance tailored to your needs.</p>
+            <a href="appointment.html" class="btn btn-primary btn-lg">Book Virtual Appointment</a>
+          </div>
+          <div class="inv-hero-img-wrap">
+            <img src="images/treatments/Online Consultation.png" alt="Online Consultation" class="inv-hero-img" style="object-fit: cover;">
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- OVERVIEW SECTION -->
+    <section class="inv-overview-section">
+      <div class="inv-container">
+        <h2 class="inv-section-title" style="margin-bottom: 40px;">About Online Consultation</h2>
+        <div class="inv-overview-list">
+          <div class="inv-overview-item">
+            <div class="inv-overview-icon">⮫</div>
+            <div class="inv-overview-text">At Sairam Dental Care in Dharmapuri, Tamilnadu, we offer convenient online consultations so you can receive expert care from the comfort of your home.</div>
+          </div>
+          <div class="inv-overview-item">
+            <div class="inv-overview-icon">⮫</div>
+            <div class="inv-overview-text">Our service allows you to connect with experienced dentists through a secure platform to ask questions, get treatment advice, or seek a second opinion.</div>
+          </div>
+          <div class="inv-overview-item">
+            <div class="inv-overview-icon">⮫</div>
+            <div class="inv-overview-text">During the virtual appointment, you can discuss your concerns and share symptoms to receive professional, personalized guidance.</div>
+          </div>
+          <div class="inv-overview-item">
+            <div class="inv-overview-icon">⮫</div>
+            <div class="inv-overview-text">Ideal for busy schedules or those who prefer remote care. Experience the convenience and expertise of Sairam Dental Care from wherever you are.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="inv-cta" style="margin-top: 60px;">
+      <div class="inv-container">
+        <div class="inv-cta-box">
+          <h2 class="inv-cta-title">Connect with Our Experts Today</h2>
+          <p class="inv-cta-desc">Experience accessible, high-quality dental care from the comfort of your home.</p>
+          <a href="appointment.html" class="btn btn-primary btn-lg">Book Your Online Consultation</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- ═══════════════ FOOTER ═══════════════ -->
-  <footer class="footer" id="footer" style="padding: 60px 0;">
-    <div class="container" style="text-align: center; color: white;">
-       <p>&copy; 2024 Sairam Dental Care. All rights reserved.</p>
+  <footer class="footer" id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Brand -->
+          <div class="footer-brand">
+            <a href="index.html#hero" class="nav-logo footer-logo">
+              <img src="images/sairam-logo.png" alt="Sairam Dental Care Logo" class="logo-image" />
+              <div class="logo-text"><span class="logo-name">Sairam</span><span class="logo-sub">Dental Care</span>
+              </div>
+            </a>
+            <p class="footer-desc">From a child’s first tooth to a teenager’s perfect smile, we provide expert braces, aligners, and gentle pediatric dental care for lifelong healthy smiles.</p>
+                                                                        <div class="footer-phone-left" style="margin-bottom: 20px;">
+              <p style="margin: 0 0 5px 0; color: #a0aec0; font-size: 0.95rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <a href="tel:+919894549244" style="color: white; text-decoration: none;">+91 98945 49244</a>
+              </p>
+              <p style="margin: 0; color: #a0aec0; font-size: 0.95rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <a href="tel:+918248436811" style="color: white; text-decoration: none;">+91 82484 36811</a>
+              </p>
+            </div>
+            <div class="footer-social">
+              <a href="#" class="fsoc social-wa" aria-label="WhatsApp">
+                <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                  <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.061 3.961L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c.003-3.625 2.952-6.575 6.577-6.575a6.59 6.59 0 0 1 4.653 1.927 6.586 6.586 0 0 1 1.925 4.651c-.004 3.625-2.953 6.575-6.578 6.575zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                </svg>
+              </a>
+              <a href="#" class="fsoc social-fb" aria-label="Facebook">
+                <svg viewBox="0 0 320 512" fill="currentColor" width="12" height="16">
+                  <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+                </svg>
+              </a>
+              <a href="#" class="fsoc social-ig" aria-label="Instagram">
+                <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                </svg>
+              </a>
+              <a href="#" class="fsoc social-yt" aria-label="YouTube">
+                <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172 1.284.22 2.456.047 1.171.053 2.06.053 2.37v.05c-.001.31-.006 1.199-.053 2.37-.048 1.172-.119 2.076-.22 2.456a2.01 2.01 0 0 1-1.415 1.42c-1.123.302-5.288.332-6.11-.335h-.089c-.822-.003-4.987-.033-6.11-.335a2.01 2.01 0 0 1-1.415-1.42c-.101-.38-.172-1.284-.22-2.456C.006 9.851 0 8.962 0 8.652v-.05c0-.31.006-1.199.053-2.37.048-1.172.119-2.076.22-2.456A2.01 2.01 0 0 1 1.68 2.334c1.123-.302 5.288-.332 6.11-.335zM6.4 10.814l4.74-2.81-4.74-2.81v5.62z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!-- Links -->
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html#hero">Home</a></li>
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="treatments.html">Treatments</a></li>
+              <li><a href="index.html#gallery">Smile Gallery</a></li>
+              <li><a href="index.html#testimonials">Testimonials</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
+          </div>
+          <!-- Services -->
+          <div class="footer-col">
+            <h4>Our Services</h4>
+            <ul>
+              <li><a href="treatment-invisalign.html">Invisalign Treatment</a></li>
+              <li><a href="treatment-laser.html">Laser gum Treatment</a></li>
+              <li><a href="treatment-braces.html">Braces Treatment</a></li>
+              <li><a href="treatment-root-canal.html">Root Canal Treatment</a></li>
+              <li><a href="treatment-3d-scan.html">3D Intraoral Scanning</a></li>
+              <li><a href="treatment-pediatric.html">Pediatric Dentistry</a></li>
+              <li><a href="treatment-smile-designing.html">Smile Designing</a></li>
+            </ul>
+          </div>
+          <!-- Contact -->
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+                                                            <ul class="footer-contact-list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span class="contact-link">AN Tower, opp. To NGGO Colony, Valluvar Nagar, Oddappatti, Dharmapuri, Tamil Nadu - 636705.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <a href="mailto:sairamdentalcaredpi@gmail.com" class="contact-link">sairamdentalcaredpi@gmail.com</a>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <a href="tel:+919894549244" class="contact-link">+91 98945 49244</a>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <a href="tel:+918248436811" class="contact-link">+91 82484 36811</a>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Monday - Saturday<br>9:30 am - 8:30 pm</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Sunday -<br>9:30 am - 1:00 pm</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 Sairam Dental Care. All rights reserved. .</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
     </div>
   </footer>
 
-<script src="script.js"></script>  <!-- ═══════════════ MOBILE BOTTOM NAV ═══════════════ -->
+  <!-- Scroll To Top -->
+  <button class="scroll-top" id="scroll-top-btn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+      <polyline points="18 15 12 9 6 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+  </button>
+  <script src="script.js"></script>
+  <!-- ═══════════════ MOBILE BOTTOM NAV ═══════════════ -->
   <nav class="mobile-bottom-nav">
     <a href="index.html" class="mb-nav-item">
       <div class="mb-icon">
@@ -107,13 +850,16 @@
       </div>
       <span class="mb-label">Booking</span>
     </a>
-    <button class="mb-nav-item" id="mb-more-btn" aria-label="More Menu">
+    <a href="https://wa.me/919894549244" class="mb-nav-item" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
       <div class="mb-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+        </svg>
       </div>
-      <span class="mb-label">More</span>
-    </button>
+      <span class="mb-label">WhatsApp</span>
+    </a>
   </nav>
-
 </body>
+
+
 </html>

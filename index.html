@@ -14,7 +14,73 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=3.6" />
+  <link rel="stylesheet" href="style.css?v=4.0" />
+  <style>
+    /* ─────────── HOME CTA & BLOG SECTION STYLES ─────────── */
+    .home-cta-section { padding: 80px 20px; background: #fafcff; }
+    .home-cta-box { max-width: 1200px; margin: 0 auto; border-radius: 24px; background: linear-gradient(135deg, #38bdf8 0%, #1e40af 100%); padding: 60px 40px; text-align: center; color: white; box-shadow: 0 20px 40px rgba(30, 64, 175, 0.2); position: relative; overflow: hidden; }
+    .home-cta-box::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%); pointer-events: none; }
+    .home-cta-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 20px; letter-spacing: -0.02em; }
+    .home-cta-desc { font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; color: rgba(255, 255, 255, 0.9); line-height: 1.6; }
+    .home-cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 2; }
+    .home-cta-actions .btn { padding: 14px 32px; font-size: 1.05rem; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    .btn-white { background: white; color: #1e40af; border: none; font-weight: 600; }
+    .btn-white:hover { background: #f8fafc; transform: translateY(-2px); box-shadow: 0 14px 28px rgba(0,0,0,0.15); }
+    .btn-outline-white { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.5); font-weight: 600; }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-2px); }
+    
+    .blog-section { background: #f8fafc; padding: 60px 0; }
+    .blog-section-heading { text-align: center; margin-bottom: 44px; }
+    .blog-section-tag { display: inline-block; background: rgba(26,79,160,0.09); color: #1a4fa0; font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 16px; border-radius: 50px; border: 1px solid rgba(26,79,160,0.15); margin-bottom: 12px; }
+    .blog-section-heading h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; color: #0d1b3e; margin: 0; line-height: 1.2; }
+    
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .blog-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 24px rgba(13,27,62,0.07); border: 1px solid rgba(13,27,62,0.06); transition: transform 0.32s ease, box-shadow 0.32s ease; display: flex; flex-direction: column; }
+    .blog-card:hover { transform: translateY(-8px); box-shadow: 0 20px 48px rgba(13,27,62,0.13); }
+    
+    .blog-card-img { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #e2e8f0; }
+    .blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .blog-card:hover .blog-card-img img { transform: scale(1.06); }
+    
+    .blog-category-tag { position: absolute; top: 14px; left: 14px; color: #fff; font-family: var(--font-display); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 5px 12px; border-radius: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); }
+    .tag-blue { background: #1a4fa0; } .tag-teal { background: #0e94d4; } .tag-green { background: #0d9488; }
+    
+    .blog-card-body { padding: 22px 22px 20px; flex: 1; display: flex; flex-direction: column; }
+    .blog-meta { display: flex; align-items: center; gap: 10px; font-size: 0.78rem; color: #94a3b8; font-weight: 500; margin-bottom: 10px; }
+    .blog-meta-dot { font-size: 0.45rem; }
+    .blog-card-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: #0d1b3e; line-height: 1.4; margin: 0 0 10px; }
+    .blog-card-excerpt { font-size: 0.875rem; color: #64748b; line-height: 1.65; flex: 1; margin-bottom: 18px; }
+    
+    .blog-card-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 14px; margin-top: auto; }
+    .blog-author { display: flex; align-items: center; gap: 9px; }
+    .blog-author-avatar { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #1a4fa0, #0e94d4); display: flex; align-items: center; justify-content: center; color: #fff; font-family: var(--font-display); font-size: 0.72rem; font-weight: 800; flex-shrink: 0; }
+    .blog-author-name { font-size: 0.8rem; font-weight: 600; color: #334155; }
+    
+    .blog-read-btn { display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; color: #1a4fa0; text-decoration: none; transition: gap 0.2s; white-space: nowrap; }
+    .blog-read-btn:hover { gap: 8px; color: #0e94d4; }
+    .blog-read-btn svg { transition: transform 0.2s; flex-shrink: 0; }
+    .blog-read-btn:hover svg { transform: translateX(3px); }
+    
+    @media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+    @media (max-width: 600px) { 
+      .blog-section { padding: 44px 0 52px; overflow: hidden; } 
+      .blog-grid { display: flex; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding: 0 20px 20px; scrollbar-width: none; -webkit-overflow-scrolling: touch; } 
+      .blog-grid::-webkit-scrollbar { display: none; }
+      .blog-card { flex: 0 0 85%; scroll-snap-align: center; }
+      .blog-section-heading { margin-bottom: 24px; } 
+      .blog-section-heading h2 { font-size: 1.6rem; }
+      .blog-card-body { padding: 18px 18px 16px; }
+      .blog-card-title { font-size: 0.95rem; }
+      .blog-card-excerpt { font-size: 0.82rem; margin-bottom: 14px; }
+      
+      .home-cta-section { padding: 40px 16px; }
+      .home-cta-box { padding: 40px 20px; border-radius: 16px; }
+      .home-cta-title { font-size: 1.6rem; margin-bottom: 12px; }
+      .home-cta-desc { font-size: 0.95rem; margin-bottom: 24px; line-height: 1.5; }
+      .home-cta-actions { gap: 12px; flex-direction: column; }
+      .home-cta-actions .btn { padding: 12px 24px; font-size: 0.95rem; width: 100%; justify-content: center; }
+    }
+  </style>
 </head>
 
 <body>
@@ -47,7 +113,7 @@
       <nav class="nav-links" role="navigation" aria-label="Main navigation">
         <a href="#hero" class="nav-link active" id="nav-home">Home</a>
         <div class="nav-dropdown-wrapper">
-          <a href="about.html" class="nav-link" id="nav-about">About Us</a>
+          <a href="#about" class="nav-link" id="nav-about">About Us</a>
           <div class="nav-dropdown">
             <a href="dr-raghuraaman.html" class="dropdown-link">Dr. Raghuraaman</a>
             <a href="dr-nivetha.html" class="dropdown-link">Dr. Nivetha</a>
@@ -55,8 +121,8 @@
         </div>
         <a href="treatments.html" class="nav-link" id="nav-treatments">Treatments</a>
         <a href="#gallery" class="nav-link" id="nav-gallery">Smile Gallery</a>
-        <a href="#testimonials" class="nav-link" id="nav-blog">Testimonials</a>
         <a href="#contact" class="nav-link" id="nav-contact">Contact</a>
+        <a href="blog.html" class="nav-link" id="nav-blog">Blog</a>
       </nav>
 
       <div class="nav-actions">
@@ -78,13 +144,13 @@
     <div class="mobile-menu" id="mobile-menu">
       <nav class="mobile-nav">
         <a href="#hero" class="mobile-nav-link">Home</a>
-        <a href="about.html" class="mobile-nav-link">About Us</a>
+        <a href="#about" class="mobile-nav-link">About Us</a>
         <a href="dr-raghuraaman.html" class="mobile-nav-link" style="padding-left: 2.5rem; font-size: 1rem; color: var(--blue-sky);">- Dr. Raghuraaman</a>
         <a href="dr-nivetha.html" class="mobile-nav-link" style="padding-left: 2.5rem; font-size: 1rem; color: var(--blue-sky);">- Dr. Nivetha</a>
         <a href="treatments.html" class="mobile-nav-link">Treatments</a>
         <a href="#gallery" class="mobile-nav-link">Smile Gallery</a>
-        <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
         <a href="#contact" class="mobile-nav-link">Contact</a>
+        <a href="blog.html" class="mobile-nav-link">Blog</a>
         <a href="appointment.html" class="btn btn-primary mob-cta">Book Appointment</a>
       </nav>
     </div>
@@ -97,9 +163,11 @@
       <div class="hero-bg" aria-hidden="true">
         <!-- Sliding Background Images -->
         <div class="bg-slider" id="bg-slider">
-          <div class="bg-slide active" style="background-image: url('images/hero-banner.png');"></div>
-          <div class="bg-slide" style="background-image: url('images/hero-banner.png');"></div>
-          <div class="bg-slide" style="background-image: url('images/hero-banner.png');"></div>
+          <div class="bg-slide slide-1 active"></div>
+          <div class="bg-slide slide-2"></div>
+          <div class="bg-slide slide-3"></div>
+          <div class="bg-slide slide-4"></div>
+          <div class="bg-slide slide-5"></div>
         </div>
 
         <!-- Slider Controls -->
@@ -121,14 +189,84 @@
       </div>
     </section>
 
+    <!-- ═══════════════ ABOUT US ═══════════════ -->
+    <section class="section about-section" id="about" style="background: #fafcff;">
+      <div class="container">
+        <div class="section-header reveal" style="margin-bottom: 30px;">
+          <h2 class="section-title" style="display: inline-block; color: var(--navy); margin-bottom: 8px;">About Us</h2>
+          <div style="width: 80px; height: 4px; background: var(--grad-primary); margin: 0 auto; border-radius: 4px;"></div>
+        </div>
+        <div class="about-card reveal">
+          <div class="about-grid">
+            <div class="about-visual">
+            <div class="about-img-wrap">
+              <div class="about-img-inner">
+                <!-- About Clinic Image -->
+                <img src="images/home-page-about.png" alt="Sairam Dental Care Clinic" class="about-clinic-img" />
+              </div>
+            </div>
+          </div>
+          <div class="about-content">
+            <span class="section-tag">About SAIRAM Dental Clinic</span>
+            <h2 class="section-title">Your Journey to Confidence Begins Here!</h2>
+            <p class="about-lead" style="text-align: justify;">Sairam dental care located in Dharmapuri, with Leading Dentist In Oddapatti, is the
+              Dental Hospital with exclusive root canal, Braces &amp; Invisalign center. Led by renowned <a href="dr-raghuraaman.html" style="color: var(--blue-sky); text-decoration: underline;">Dr. Raghuraaman</a>
+              (Periodontist) and Dr. Nivetha Raghuraaman (Orthodontist) Sairam dental care offers gum treatment with
+              expertise in laser, root canal treatment and digital smile correction with advanced technology aim to
+              focus on aesthetics, comfort and precision. The clinic also specializes in Invisalign treatment, digital
+              smile makeover, laser gum care, dental implants, root canal therapy, extractions and full-mouth
+              rehabilitation blending compassionate care and clinical excellence.</p>
+            <div class="about-points">
+              <div class="about-point">
+                <div class="ap-icon">
+                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" />
+                    <polyline points="22 4 12 14.01 9 11.01" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div><strong>Friendly Environment</strong></div>
+              </div>
+              <div class="about-point">
+                <div class="ap-icon">
+                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" />
+                    <polyline points="22 4 12 14.01 9 11.01" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div><strong>Experienced Dental</strong></div>
+              </div>
+              <div class="about-point">
+                <div class="ap-icon">
+                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" />
+                    <polyline points="22 4 12 14.01 9 11.01" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div><strong>Personalized Patient care</strong></div>
+              </div>
+              <div class="about-point">
+                <div class="ap-icon">
+                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" />
+                    <polyline points="22 4 12 14.01 9 11.01" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div><strong>Pain-Free Dentistry</strong></div>
+              </div>
+            </div>
+            <a href="#about" class="btn btn-primary btn-lg">Learn More About Us &rarr;</a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ═══════════════ WHY CHOOSE US ═══════════════ -->
     <section class="section why-section" id="why">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Features</span>
           <h2 class="section-title">Why choose us</h2>
-          <p class="section-sub">Our professional, experienced, and passionate dentists make us the best choice for
-            Invisalign treatment in Dharmapuri, providing top-notch dental services.</p>
         </div>
         <div class="why-grid">
           <div class="why-card reveal" id="why-1">
@@ -476,6 +614,94 @@
       </div>
     </section>
 
+    <!-- ═══════════════ DOCTOR EXPLAINS (VIDEOS) ═══════════════ -->
+    <section class="section video-section" id="videos" style="background-color: #f8fafc;">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Doctor Explains</span>
+          <h2 class="section-title">Educational Reels</h2>
+          <p class="section-subtitle">Learn more about dental health, procedures, and tips directly from our experts.</p>
+        </div>
+        
+        <div class="video-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+          
+          <!-- Video 1 -->
+          <div class="video-card custom-reel-card" style="aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: #000; position: relative; cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" onclick="openVideoModal('https://www.instagram.com/p/DYtYRdoRTOy/embed')">
+            <img src="assets/img/videos/thumb1.webp" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;" alt="Video Thumbnail">
+            <!-- Instagram Left Badge -->
+            <div class="reel-ig-left">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </div>
+            <!-- Play Button -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.15);">
+               <div style="width: 64px; height: 64px; background: rgba(255,255,255,0.25); backdrop-filter: blur(4px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="white" style="margin-left: 4px;"><path d="M8 5v14l11-7z"/></svg>
+               </div>
+            </div>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="video-card custom-reel-card" style="aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: #000; position: relative; cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" onclick="openVideoModal('https://www.instagram.com/reel/DWS_XN7xSWb/embed')">
+            <img src="assets/img/videos/thumb2.webp" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;" alt="Video Thumbnail">
+            <!-- Instagram Left Badge -->
+            <div class="reel-ig-left">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </div>
+            <!-- Play Button -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.15);">
+               <div style="width: 64px; height: 64px; background: rgba(255,255,255,0.25); backdrop-filter: blur(4px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="white" style="margin-left: 4px;"><path d="M8 5v14l11-7z"/></svg>
+               </div>
+            </div>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="video-card custom-reel-card" style="aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: #000; position: relative; cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" onclick="openVideoModal('https://www.instagram.com/reel/DVxoZGcoEU9/embed')">
+            <img src="assets/img/videos/thumb3.webp" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;" alt="Video Thumbnail">
+            <!-- Instagram Left Badge -->
+            <div class="reel-ig-left">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </div>
+            <!-- Play Button -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.15);">
+               <div style="width: 64px; height: 64px; background: rgba(255,255,255,0.25); backdrop-filter: blur(4px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="white" style="margin-left: 4px;"><path d="M8 5v14l11-7z"/></svg>
+               </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Video Modal Popup -->
+        <div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center; backdrop-filter: blur(5px);">
+          <div style="position: relative; width: 100%; max-width: 400px; max-height: 90vh; aspect-ratio: 9/16; background: #000; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+            <button onclick="closeVideoModal()" style="position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.3); color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); transition: 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.8)';this.style.borderColor='white'" onmouseout="this.style.background='rgba(0,0,0,0.5)';this.style.borderColor='rgba(255,255,255,0.3)'">&times;</button>
+            <iframe id="videoModalIframe" src="" width="100%" height="100%" style="position:absolute;top:0;left:0;border:none;overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+          </div>
+        </div>
+        <script>
+          function openVideoModal(url) {
+            document.getElementById('videoModalIframe').src = url;
+            document.getElementById('videoModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          }
+          function closeVideoModal() {
+            document.getElementById('videoModalIframe').src = '';
+            document.getElementById('videoModal').style.display = 'none';
+            document.body.style.overflow = '';
+          }
+        </script>
+        
+        <div style="text-align: center; margin-top: 50px;" class="reveal">
+          <a href="https://www.instagram.com/sairam_dental_care?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; padding: 14px 28px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.05rem; box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+            Follow us on Instagram
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- ═══════════════ TESTIMONIALS ═══════════════ -->
     <section class="section testimonials-section" id="testimonials">
@@ -491,7 +717,34 @@
         </div>
         <div class="testi-slider-wrap reveal">
           <div class="testi-slider" id="testi-slider">
-
+            <div class="testi-card" id="tcard-0">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"Had an excellent service. I'm very happy with the treatment and result is great"</p>
+              <div class="testi-author">
+                <div class="testi-avatar" style="--ag1:#ea580c;--ag2:#fb923c">
+                  <svg viewBox="0 0 50 50" fill="none" width="50" height="50">
+                    <defs>
+                      <clipPath id="aclip0">
+                        <circle cx="25" cy="25" r="25" />
+                      </clipPath>
+                      <linearGradient id="ta0" x1="0" y1="0" x2="1" y2="1">
+                        <stop stop-color="#ea580c" />
+                        <stop offset="1" stop-color="#fb923c" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="25" cy="25" r="25" fill="url(#ta0)" />
+                    <g clip-path="url(#aclip0)">
+                      <circle cx="25" cy="20" r="9" fill="white" opacity="0.9" />
+                      <path d="M5 50 C5 36 14 30 25 30 C36 30 45 36 45 50 Z" fill="white" opacity="0.9" />
+                    </g>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Haripriya</strong>
+                  <span>Happy Patient</span>
+                </div>
+              </div>
+            </div>
             <div class="testi-card" id="tcard-1">
               <div class="testi-stars">★★★★★</div>
               <p class="testi-text">"I had severe dental anxiety before coming to Sairam Dental Care. Dr. Kumar and his
@@ -756,7 +1009,7 @@
               </div>
               <div>
                 <strong>Address</strong>
-                <p>Sairam Dental Care, Main Road,<br />Chennai, Tamil Nadu – 600001</p>
+                <p>Sairam Dental Care, AN Tower,<br />opp. To NGGO Colony, Valluvar Nagar,<br />Oddappatti, Dharmapuri,<br />Tamil Nadu – 636705.</p>
               </div>
             </div>
             <div class="ci-card" id="ci-phone">
@@ -769,7 +1022,7 @@
               </div>
               <div>
                 <strong>Phone</strong>
-                <p><a href="tel:+919876543210">+91 98765 43210</a><br /><a href="tel:+914412345678">044 1234 5678</a>
+                <p><a href="tel:+919894549244">+91 98945 49244</a><br /><a href="tel:+918248436811">+91 82484 36811</a>
                 </p>
               </div>
             </div>
@@ -783,7 +1036,7 @@
               </div>
               <div>
                 <strong>Email</strong>
-                <p><a href="mailto:info@sairamdentalcare.in">info@sairamdentalcare.in</a></p>
+                <p><a href="mailto:sairamdentalcaredpi@gmail.com">sairamdentalcaredpi@gmail.com</a></p>
               </div>
             </div>
             <div class="social-links">
@@ -818,11 +1071,188 @@
           <div class="contact-map reveal">
             <div class="map-wrap">
               <iframe title="Sairam Dental Care Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7657046543516!2d80.27076731427855!3d13.046972218016434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265d8c7c7f8e1%3A0x45b7d8e2b0b4f!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1686000000000!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=SAIRAM+DENTAL+CLINIC,+Dharmapuri&t=&z=18&ie=UTF8&iwloc=&output=embed"
                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade">
               </iframe>
             </div>
+            <div style="padding: 24px; background: white; border-top: 1px solid #eee; display: flex; flex-direction: column; gap: 20px;">
+              <div style="text-align: center;">
+                <a href="https://www.google.com/maps/place/SAIRAM+DENTAL+CLINIC/@12.0977956,78.1397186,17z/data=!4m16!1m9!3m8!1s0x3bac17d34923bc5f:0x18e52f9f002d5927!2sSAIRAM+DENTAL+CLINIC!8m2!3d12.0977956!4d78.1397186!9m1!1b1!16s%2Fg%2F11h7hxtwy9!3m5!1s0x3bac17d34923bc5f:0x18e52f9f002d5927!8m2!3d12.0977956!4d78.1397186!16s%2Fg%2F11h7hxtwy9?hl=en&entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                  </svg>
+                  Write a Google Review
+                </a>
+              </div>
+              
+              <div class="contact-map-reviews" style="display: flex; flex-direction: column; gap: 16px; max-height: 350px; overflow-y: auto; padding-right: 8px;">
+                <!-- Review 1: Haripriya -->
+                <div class="google-review-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px;">
+                  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                    <div style="width: 40px; height: 40px; border-radius: 50%; background: #ea580c; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;">
+                      H
+                    </div>
+                    <div>
+                      <strong style="display: block; color: var(--navy); font-size: 0.95rem; line-height: 1.2;">Haripriya</strong>
+                      <div style="color: #fbbc05; font-size: 0.85rem; letter-spacing: 2px;">★★★★★</div>
+                    </div>
+                    <div style="margin-left: auto;">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <p style="font-size: 0.9rem; color: var(--grey-600); line-height: 1.5; margin: 0; font-style: italic;">
+                    "Had an excellent service. I'm very happy with the treatment and result is great"
+                  </p>
+                </div>
+
+                <!-- Review 2: Manikandan Mani -->
+                <div class="google-review-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px;">
+                  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                    <div style="width: 40px; height: 40px; border-radius: 50%; background: #16a34a; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;">
+                      M
+                    </div>
+                    <div>
+                      <strong style="display: block; color: var(--navy); font-size: 0.95rem; line-height: 1.2;">Manikandan Mani</strong>
+                      <div style="color: #fbbc05; font-size: 0.85rem; letter-spacing: 2px;">★★★★★</div>
+                    </div>
+                    <div style="margin-left: auto;">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <p style="font-size: 0.9rem; color: var(--grey-600); line-height: 1.5; margin: 0; font-style: italic;">
+                    "Vary vary good. Teeth extraction in operation method done. Satisfactory"
+                  </p>
+                </div>
+
+                <!-- Review 3: aberame Abeponarul -->
+                <div class="google-review-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px;">
+                  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                    <div style="width: 40px; height: 40px; border-radius: 50%; background: #9333ea; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;">
+                      A
+                    </div>
+                    <div>
+                      <strong style="display: block; color: var(--navy); font-size: 0.95rem; line-height: 1.2;">aberame Abeponarul</strong>
+                      <div style="color: #fbbc05; font-size: 0.85rem; letter-spacing: 2px;">★★★★★</div>
+                    </div>
+                    <div style="margin-left: auto;">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <p style="font-size: 0.9rem; color: var(--grey-600); line-height: 1.5; margin: 0; font-style: italic;">
+                    "Affordable Price and Politely asked about our issues.The doctor openly uttered about the next level of treatment. I strongly recommend Sairam dental clinic for all dental issues."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ LATEST BLOGS ═══════════════ -->
+    <section class="blog-section" style="padding-top: 0;">
+      <div class="blog-section-heading reveal">
+        <div class="blog-section-tag">Latest News &amp; Blog</div>
+        <h2>From Our Dental Experts</h2>
+      </div>
+      <div class="blog-grid">
+          <article class="blog-card reveal">
+            <div class="blog-card-img">
+              <img src="images/treatments/Pediatric Dentistry Treatment.jpg" alt="Pediatric Dentistry in Dharmapuri" onerror="this.src='https://placehold.co/600x340/e2e8f0/64748b?text=Pediatric+Dentistry'" />
+              <span class="blog-category-tag tag-green">Pediatric</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta">
+                <span>March 1, 2026</span>
+                <span class="blog-meta-dot">&#9679;</span>
+                <span>Pediatric Dentistry in Dharmapuri</span>
+              </div>
+              <h2 class="blog-card-title">Pediatric Dentistry in Dharmapuri</h2>
+              <p class="blog-card-excerpt">Pediatric Dentistry in Dharmapuri – Gentle Dental Care at Sairam Dental Clinic</p>
+              <div class="blog-card-footer">
+                <div class="blog-author">
+                  <div class="blog-author-avatar" style="background:linear-gradient(135deg,#0d9488,#14b8a6);">DN</div>
+                  <span class="blog-author-name">Dr. Nivetha</span>
+                </div>
+                <a href="blog.html" class="blog-read-btn">read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </div>
+          </article>
+          <article class="blog-card reveal" style="transition-delay:.1s;">
+            <div class="blog-card-img">
+              <img src="images/treatments/Laser Gum.jpg" alt="Laser Gum Specialist in Oddapatti" onerror="this.src='https://placehold.co/600x340/e2e8f0/64748b?text=Laser+Gum'" />
+              <span class="blog-category-tag tag-teal">Laser Dentistry</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta">
+                <span>March 3, 2026</span>
+                <span class="blog-meta-dot">&#9679;</span>
+                <span>Laser Gum Specialist in Oddapatti</span>
+              </div>
+              <h2 class="blog-card-title">Laser Gum Specialist in Oddapatti</h2>
+              <p class="blog-card-excerpt">Laser Gum Specialist in Oddapatti – Advanced Gum Care at Sairam Dental Clinic</p>
+              <div class="blog-card-footer">
+                <div class="blog-author">
+                  <div class="blog-author-avatar" style="background:linear-gradient(135deg,#0e94d4,#1a4fa0);">DR</div>
+                  <span class="blog-author-name">Dr. Raghuraaman</span>
+                </div>
+                <a href="blog.html" class="blog-read-btn">read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </div>
+          </article>
+          <article class="blog-card reveal" style="transition-delay:.2s;">
+            <div class="blog-card-img">
+              <img src="images/treatments/Smile Designing Treatment.jpg" alt="Dental Clinic in Dharmapuri" onerror="this.src='https://placehold.co/600x340/e2e8f0/64748b?text=Dental+Clinic'" />
+              <span class="blog-category-tag tag-blue">Dental Care</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta">
+                <span>March 6, 2026</span>
+                <span class="blog-meta-dot">&#9679;</span>
+                <span>Dental Clinic in Dharmapuri</span>
+              </div>
+              <h2 class="blog-card-title">Dental Clinic in Dharmapuri</h2>
+              <p class="blog-card-excerpt">Dental Clinic in Dharmapuri – Quality Care at Sairam Dental Clinic</p>
+              <div class="blog-card-footer">
+                <div class="blog-author">
+                  <div class="blog-author-avatar">DR</div>
+                  <span class="blog-author-name">Dr. Raghuraaman</span>
+                </div>
+                <a href="blog.html" class="blog-read-btn">read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </div>
+          </article>
+        </div>
+    </section>
+
+    <!-- ═══════════════ CTA SECTION ═══════════════ -->
+    <section class="home-cta-section reveal">
+      <div class="container">
+        <div class="home-cta-box">
+          <h2 class="home-cta-title">Ready for a Healthier, Brighter Smile?</h2>
+          <p class="home-cta-desc">Join thousands of happy patients in Dharmapuri. Book your consultation today and take the first step towards a perfect smile.</p>
+          <div class="home-cta-actions">
+            <a href="appointment.html" class="btn btn-white">Book Appointment</a>
+            <a href="tel:+919894549244" class="btn btn-outline-white">Call Us Now</a>
           </div>
         </div>
       </div>
@@ -842,9 +1272,18 @@
               <div class="logo-text"><span class="logo-name">Sairam</span><span class="logo-sub">Dental Care</span>
               </div>
             </a>
-            <p class="footer-desc">Transforming smiles with advanced dental care since 2013. Your trusted partner for
-              complete oral health.</p>
-                                                            <div class="footer-social">
+            <p class="footer-desc">From a child’s first tooth to a teenager’s perfect smile, we provide expert braces, aligners, and gentle pediatric dental care for lifelong healthy smiles.</p>
+                                                                        <div class="footer-phone-left" style="margin-bottom: 20px;">
+              <p style="margin: 0 0 5px 0; color: #a0aec0; font-size: 0.95rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <a href="tel:+919894549244" style="color: white; text-decoration: none;">+91 98945 49244</a>
+              </p>
+              <p style="margin: 0; color: #a0aec0; font-size: 0.95rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <a href="tel:+918248436811" style="color: white; text-decoration: none;">+91 82484 36811</a>
+              </p>
+            </div>
+            <div class="footer-social">
               <a href="#" class="fsoc social-wa" aria-label="WhatsApp">
                 <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
                   <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.061 3.961L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c.003-3.625 2.952-6.575 6.577-6.575a6.59 6.59 0 0 1 4.653 1.927 6.586 6.586 0 0 1 1.925 4.651c-.004 3.625-2.953 6.575-6.578 6.575zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
@@ -872,11 +1311,12 @@
             <h4>Quick Links</h4>
             <ul>
               <li><a href="#hero">Home</a></li>
-              <li><a href="about.html">About Us</a></li>
+              <li><a href="#about">About Us</a></li>
               <li><a href="treatments.html">Treatments</a></li>
               <li><a href="#gallery">Smile Gallery</a></li>
               <li><a href="#testimonials">Testimonials</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li><a href="blog.html">Blog</a></li>
             </ul>
           </div>
           <!-- Services -->
@@ -888,6 +1328,8 @@
               <li><a href="treatment-braces.html">Braces Treatment</a></li>
               <li><a href="treatment-root-canal.html">Root Canal Treatment</a></li>
               <li><a href="treatment-3d-scan.html">3D Intraoral Scanning</a></li>
+              <li><a href="treatment-pediatric.html">Pediatric Dentistry</a></li>
+              <li><a href="treatment-smile-designing.html">Smile Designing</a></li>
             </ul>
           </div>
           <!-- Contact -->
@@ -895,8 +1337,12 @@
             <h4>Contact Us</h4>
                                                             <ul class="footer-contact-list">
               <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span class="contact-link">AN Tower, opp. To NGGO Colony, Valluvar Nagar, Oddappatti, Dharmapuri, Tamil Nadu - 636705.</span>
+              </li>
+              <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                <a href="mailto:sairamdentalcare.com" class="contact-link">sairamdentalcare.com</a>
+                <a href="mailto:sairamdentalcaredpi@gmail.com" class="contact-link">sairamdentalcaredpi@gmail.com</a>
               </li>
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
@@ -957,14 +1403,16 @@
       </div>
       <span class="mb-label">Booking</span>
     </a>
-    <button class="mb-nav-item" id="mb-more-btn" aria-label="More Menu">
+    <a href="https://wa.me/919894549244" class="mb-nav-item" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
       <div class="mb-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+        </svg>
       </div>
-      <span class="mb-label">More</span>
-    </button>
+      <span class="mb-label">WhatsApp</span>
+    </a>
   </nav>
-
 </body>
+
 
 </html>
