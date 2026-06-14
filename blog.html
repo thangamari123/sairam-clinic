@@ -3,22 +3,262 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog - Sairam Dental Care</title>
-  <meta name="description" content="Latest dental health news, tips and expert guides from Sairam Dental Care, Dharmapuri." />
+  <title>Blog – Sairam Dental Care | Expert Dental Tips & News</title>
+  <meta name="description" content="Read expert dental tips, treatment insights and the latest news from Sairam Dental Care, Dharmapuri. Stay informed and smile brighter." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=4.0" />
+  <link rel="stylesheet" href="style.css?v=5.0" />
+  <style>
+    /* ═══════ BLOG PAGE EXCLUSIVE STYLES ═══════ */
+
+    /* ── Hero Banner ── */
+    .bp-hero {
+      background: linear-gradient(135deg, #0d1b3e 0%, #1a4fa0 55%, #0ea5e9 100%);
+      padding: 90px 20px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .bp-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 40%, rgba(14,165,233,0.22) 0%, transparent 65%),
+                  radial-gradient(ellipse at 20% 80%, rgba(124,58,237,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .bp-hero-inner { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
+    .bp-breadcrumb {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.65);
+      letter-spacing: .05em; margin-bottom: 18px;
+    }
+    .bp-breadcrumb a { color: rgba(255,255,255,.65); text-decoration: none; transition: color .2s; }
+    .bp-breadcrumb a:hover { color: #fff; }
+    .bp-breadcrumb .sep { opacity: .4; font-size: .7rem; }
+    .bp-hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900; color: #fff; margin: 0 0 14px;
+      line-height: 1.1; letter-spacing: -0.03em;
+    }
+    .bp-hero h1 span {
+      background: linear-gradient(90deg, #38bdf8, #a78bfa);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .bp-hero p { color: rgba(255,255,255,.78); font-size: 1rem; line-height: 1.65; max-width: 520px; margin: 0 auto; }
+
+    /* ── Section Wrapper ── */
+    .bp-section {
+      background: #f0f6ff;
+      padding: 56px 0 64px;
+    }
+    .bp-section-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .bp-section-head { text-align: center; margin-bottom: 40px; }
+    .bp-tag {
+      display: inline-block;
+      background: rgba(26,79,160,.09); color: #1a4fa0;
+      font-family: 'Outfit', sans-serif; font-size: .75rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 5px 16px; border-radius: 50px;
+      border: 1px solid rgba(26,79,160,.18); margin-bottom: 10px;
+    }
+    .bp-section-head h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 800; color: #0d1b3e; margin: 0; line-height: 1.2;
+    }
+    .bp-section-head p { color: #64748b; font-size: .93rem; margin-top: 8px; }
+
+    /* ── Carousel Shell ── */
+    .bp-carousel { position: relative; overflow: hidden; }
+
+    /* ── Track ── */
+    .bp-track {
+      display: flex;
+      gap: 22px;
+      transition: transform .52s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+      align-items: stretch;
+    }
+
+    /* ── Card ── */
+    .bp-card {
+      flex: 0 0 calc((100% - 44px) / 3);
+      min-width: 0;
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(13,27,62,.07);
+      border: 1px solid rgba(13,27,62,.06);
+      display: flex;
+      flex-direction: column;
+      transition: transform .32s ease, box-shadow .32s ease;
+    }
+    .bp-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 44px rgba(13,27,62,.13);
+    }
+    .bp-card-img {
+      position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #dde8f5;
+    }
+    .bp-card-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .bp-card:hover .bp-card-img img { transform: scale(1.06); }
+    .bp-cat {
+      position: absolute; top: 12px; left: 12px;
+      color: #fff; font-family: 'Outfit', sans-serif;
+      font-size: .66rem; font-weight: 700; letter-spacing: .07em;
+      text-transform: uppercase; padding: 4px 11px; border-radius: 50px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.18);
+    }
+    .cat-green  { background: #0d9488; }
+    .cat-teal   { background: #0e94d4; }
+    .cat-blue   { background: #1a4fa0; }
+    .cat-purple { background: #7c3aed; }
+    .cat-orange { background: #ea580c; }
+    .cat-pink   { background: #ec4899; }
+
+    .bp-card-body { padding: 18px 18px 14px; flex: 1; display: flex; flex-direction: column; }
+    .bp-meta {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .74rem; color: #94a3b8; font-weight: 500; margin-bottom: 8px;
+    }
+    .bp-meta-dot { font-size: .4rem; }
+    .bp-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: .97rem; font-weight: 700; color: #0d1b3e;
+      line-height: 1.4; margin: 0 0 8px;
+    }
+    .bp-card-excerpt {
+      font-size: .82rem; color: #64748b; line-height: 1.6;
+      flex: 1; margin-bottom: 14px;
+    }
+    .bp-card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #f1f5f9; padding-top: 12px; margin-top: auto;
+    }
+    .bp-author { display: flex; align-items: center; gap: 8px; }
+    .bp-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-family: 'Outfit', sans-serif;
+      font-size: .65rem; font-weight: 800; flex-shrink: 0;
+    }
+    .bp-author-name { font-size: .76rem; font-weight: 600; color: #334155; }
+    .bp-read {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-family: 'Outfit', sans-serif; font-size: .75rem;
+      font-weight: 700; color: #1a4fa0; text-decoration: none;
+      transition: gap .2s, color .2s; white-space: nowrap;
+    }
+    .bp-read:hover { gap: 7px; color: #0e94d4; }
+    .bp-read svg { transition: transform .2s; }
+    .bp-read:hover svg { transform: translateX(3px); }
+
+    /* ── Arrows ── */
+    .bp-controls {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; margin-top: 28px;
+    }
+    .bp-arrow {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 2px solid rgba(26,79,160,.2);
+      background: #fff; color: #0d1b3e;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 0;
+      box-shadow: 0 3px 12px rgba(0,0,0,.09);
+      transition: all .25s ease; flex-shrink: 0;
+    }
+    .bp-arrow:hover {
+      background: #1a4fa0; color: #fff; border-color: #1a4fa0;
+      box-shadow: 0 6px 20px rgba(26,79,160,.3);
+      transform: scale(1.08);
+    }
+    /* ── Dots ── */
+    .bp-dots { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .bp-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #cbd5e1; border: none; cursor: pointer;
+      transition: all .3s ease; padding: 0;
+    }
+    .bp-dot.active {
+      background: #1a4fa0; transform: scale(1.45);
+      box-shadow: 0 0 0 3px rgba(26,79,160,.2);
+    }
+
+    /* ── Newsletter CTA ── */
+    .bp-cta {
+      background: linear-gradient(135deg, #0d1b3e 0%, #1a4fa0 100%);
+      border-radius: 22px;
+      padding: 44px 36px;
+      text-align: center;
+      margin-top: 52px;
+      position: relative; overflow: hidden;
+    }
+    .bp-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 30%, rgba(14,165,233,.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .bp-cta h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800; color: #fff; margin: 0 0 10px;
+      position: relative; z-index: 2;
+    }
+    .bp-cta p { color: rgba(255,255,255,.8); font-size: .93rem; margin: 0 0 24px; position: relative; z-index: 2; }
+    .bp-cta-form {
+      display: flex; gap: 10px; justify-content: center;
+      flex-wrap: wrap; position: relative; z-index: 2;
+    }
+    .bp-cta-form input {
+      flex: 1 1 240px; max-width: 320px;
+      padding: 11px 18px; border-radius: 50px; border: none; outline: none;
+      font-size: .9rem; font-family: 'Inter', sans-serif;
+      box-shadow: 0 2px 10px rgba(0,0,0,.12);
+    }
+    .bp-cta-form button {
+      padding: 11px 24px; border-radius: 50px; border: none; cursor: pointer;
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #fff; font-weight: 700; font-family: 'Outfit', sans-serif;
+      font-size: .88rem; transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(14,165,233,.3);
+    }
+    .bp-cta-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14,165,233,.4); }
+
+    /* ── Tablet: 2 cards ── */
+    @media (max-width: 900px) {
+      .bp-card { flex: 0 0 calc((100% - 22px) / 2); }
+    }
+    /* ── Mobile: 1 card ── */
+    @media (max-width: 580px) {
+      .bp-hero { padding: 76px 16px 44px; }
+      .bp-card { flex: 0 0 100%; }
+      .bp-track { gap: 16px; }
+      .bp-cta { padding: 32px 18px; border-radius: 16px; margin-top: 36px; }
+      .bp-section { padding: 40px 0 50px; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- ══ ANNOUNCEMENT BAR ══ -->
   <div class="announcement-bar marquee-container">
     <div class="marquee-content" style="display:flex;">
       <div class="ab-item" style="display:inline-block;white-space:nowrap;">
-        <span style="padding:0 20px;font-size:.9rem;">&#11088; 10+ Years Experience &#8226; 4,000+ Happy Patients &#8226; Advanced Dental Technology &#8226; Expert Dental Care &#8226; +91 98945 49244 &#8226; +91 82484 36811 &#8226; Safe &amp; Hygienic Environment &#8226; Beautiful Smiles Every Day</span>
-        <span style="padding:0 20px;font-size:.9rem;">&#11088; 10+ Years Experience &#8226; 4,000+ Happy Patients &#8226; Advanced Dental Technology &#8226; Expert Dental Care &#8226; +91 98945 49244 &#8226; +91 82484 36811 &#8226; Safe &amp; Hygienic Environment &#8226; Beautiful Smiles Every Day</span>
+        <span style="padding:0 20px;font-size:.9rem;">⭐ 10+ Years Experience • 😊 4,000+ Happy Patients • 🏥 Advanced Dental Technology • 🦷 Expert Dental Care • 📞 +91 98945 49244 • 📱 +91 82484 36811 • 🛡️ Safe &amp; Hygienic • ✨ Beautiful Smiles</span>
+        <span style="padding:0 20px;font-size:.9rem;">⭐ 10+ Years Experience • 😊 4,000+ Happy Patients • 🏥 Advanced Dental Technology • 🦷 Expert Dental Care • 📞 +91 98945 49244 • 📱 +91 82484 36811 • 🛡️ Safe &amp; Hygienic • ✨ Beautiful Smiles</span>
       </div>
     </div>
   </div>
+
+  <!-- ══ NAVBAR ══ -->
   <header class="navbar" id="navbar" role="banner">
     <div class="nav-container">
       <a href="index.html" class="nav-logo" aria-label="Sairam Dental Care Home">
@@ -63,152 +303,188 @@
       </nav>
     </div>
   </header>
+
   <main>
-    <section class="blog-banner">
-      <div class="blog-banner-breadcrumb">
-        <a href="index.html">Home</a>
-        <span style="font-size:.7rem;opacity:.5;">›</span>
-        <span>Blog</span>
+    <!-- ══ HERO ══ -->
+    <section class="bp-hero">
+      <div class="bp-hero-inner">
+        <div class="bp-breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="sep">›</span>
+          <span style="color:#fff;">Blog</span>
+        </div>
+        <h1>Dental Tips &amp;Expert Insights</h1>
+        <p>Stay informed with the latest dental health advice, treatment updates and care tips from our specialist doctors at Sairam Dental Care, Dharmapuri.</p>
       </div>
-      <h1>Latest News &amp; Blog</h1>
-      <p>Expert tips, treatment insights, and the latest news from our specialist dentists at Sairam Dental Care.</p>
     </section>
-    <section class="blog-section">
-      <div class="blog-section-heading">
-        <div class="blog-section-tag">Latest News &amp; Blog</div>
-        <h2>From Our Dental Experts</h2>
-      </div>
-      <div class="blog-grid">
-        <article class="blog-card reveal">
-          <div class="blog-card-img">
-            <img src="images/treatments/Pediatric Dentistry Treatment.jpg" alt="Pediatric Dentistry in Dharmapuri" onerror="this.src='https://placehold.co/600x340/e2e8f0/64748b?text=Pediatric+Dentistry'" />
-            <span class="blog-category-tag tag-green">Pediatric</span>
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta">
-              <span>March 1, 2026</span>
-              <span class="blog-meta-dot">&#9679;</span>
-              <span>Pediatric Dentistry in Dharmapuri</span>
-            </div>
-            <h2 class="blog-card-title">Pediatric Dentistry in Dharmapuri</h2>
-            <p class="blog-card-excerpt">Pediatric Dentistry in Dharmapuri – Gentle Dental Care at Sairam Dental Clinic</p>
-            <div class="blog-card-footer">
-              <div class="blog-author">
-                <div class="blog-author-avatar" style="background:linear-gradient(135deg,#0d9488,#14b8a6);">DN</div>
-                <span class="blog-author-name">Dr. Nivetha</span>
+
+    <!-- ══ BLOG CAROUSEL SECTION ══ -->
+    <section class="bp-section">
+      <div class="bp-section-inner">
+
+        <div class="bp-section-head">
+          <div class="bp-tag">Latest Articles</div>
+          <h2>From Our Dental Experts</h2>
+          <p>Trusted insights to help you smile brighter every day</p>
+        </div>
+
+        <!-- Carousel -->
+        <div class="bp-carousel" id="bp-carousel">
+          <div class="bp-track" id="bp-track">
+
+            <!-- Card 1 -->
+            <article class="bp-card">
+              <div class="bp-card-img">
+                <img loading="lazy" src="images/treatments/Pediatric Dentistry Treatment.jpg" alt="Pediatric Dentistry Dharmapuri" onerror="this.src='https://placehold.co/600x338/dde8f5/1a4fa0?text=Pediatric+Care'" />
+                <span class="bp-cat cat-green">Pediatric</span>
               </div>
-              <a href="#" class="blog-read-btn">read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            </div>
-          </div>
-        </article>
-        <article class="blog-card reveal" style="transition-delay:.1s;">
-          <div class="blog-card-img">
-            <img src="images/treatments/Laser Gum.jpg" alt="Laser Gum Specialist in Oddapatti" onerror="this.src='https://placehold.co/600x340/e2e8f0/64748b?text=Laser+Gum'" />
-            <span class="blog-category-tag tag-teal">Laser Dentistry</span>
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta">
-              <span>March 3, 2026</span>
-              <span class="blog-meta-dot">&#9679;</span>
-              <span>Laser Gum Specialist in Oddapatti</span>
-            </div>
-            <h2 class="blog-card-title">Laser Gum Specialist in Oddapatti</h2>
-            <p class="blog-card-excerpt">Laser Gum Specialist in Oddapatti – Advanced Gum Care at Sairam Dental Clinic</p>
-            <div class="blog-card-footer">
-              <div class="blog-author">
-                <div class="blog-author-avatar" style="background:linear-gradient(135deg,#0e94d4,#1a4fa0);">DR</div>
-                <span class="blog-author-name">Dr. Raghuraaman</span>
+              <div class="bp-card-body">
+                <div class="bp-meta">
+                  <span>Mar 1, 2026</span><span class="bp-meta-dot">&#9679;</span><span>3 min read</span>
+                </div>
+                <h2 class="bp-card-title">Pediatric Dentistry in Dharmapuri</h2>
+                <p class="bp-card-excerpt">Gentle, child-friendly dental care at Sairam Dental Clinic. Why early dental visits matter and how we make kids feel comfortable.</p>
+                <div class="bp-card-footer">
+                  <div class="bp-author">
+                    <div class="bp-avatar" style="background:linear-gradient(135deg,#0d9488,#14b8a6);">DN</div>
+                    <span class="bp-author-name">Dr. Nivetha</span>
+                  </div>
+                  <a href="#" class="bp-read">Read More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                </div>
               </div>
-              <a href="#" class="blog-read-btn">read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            </div>
-          </div>
-        </article>
-        <article class="blog-card reveal" style="transition-delay:.2s;">
-          <div class="blog-card-img">
-            <img src="images/treatments/Smile Designing Treatment.jpg" alt="Dental Clinic in Dharmapuri" onerror="this.src='https://placehold.co/600x340/e2e8f0/64748b?text=Dental+Clinic'" />
-            <span class="blog-category-tag tag-blue">Dental Care</span>
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta">
-              <span>March 6, 2026</span>
-              <span class="blog-meta-dot">&#9679;</span>
-              <span>Dental Clinic in Dharmapuri</span>
-            </div>
-            <h2 class="blog-card-title">Dental Clinic in Dharmapuri</h2>
-            <p class="blog-card-excerpt">Dental Clinic in Dharmapuri – Quality Care at Sairam Dental Clinic</p>
-            <div class="blog-card-footer">
-              <div class="blog-author">
-                <div class="blog-author-avatar">DR</div>
-                <span class="blog-author-name">Dr. Raghuraaman</span>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="bp-card">
+              <div class="bp-card-img">
+                <img loading="lazy" src="images/treatments/Laser Gum.jpg" alt="Laser Gum Specialist" onerror="this.src='https://placehold.co/600x338/dde8f5/1a4fa0?text=Laser+Gum'" />
+                <span class="bp-cat cat-teal">Laser Dentistry</span>
               </div>
-              <a href="#" class="blog-read-btn">read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            </div>
-          </div>
-        </article>
-      </div>
-      <hr class="blog-divider" />
-      <div class="blog-section-heading">
-        <div class="blog-section-tag">Expert Guides</div>
-        <h2>More From Our Specialists</h2>
-      </div>
-      <div class="blog-grid">
-        <article class="blog-card reveal">
-          <div class="blog-card-img">
-            <img src="images/treatments/ortodoncia invisible.jpg" alt="Invisalign vs Metal Braces" onerror="this.src='https://placehold.co/600x340/e2e8f0/64748b?text=Invisalign'" />
-            <span class="blog-category-tag tag-purple">Orthodontics</span>
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta"><span>June 10, 2026</span><span class="blog-meta-dot">&#9679;</span><span>5 min read</span></div>
-            <h2 class="blog-card-title">Invisalign vs Metal Braces: Which Is Right for You?</h2>
-            <p class="blog-card-excerpt">Choosing between Invisalign and traditional braces can feel overwhelming. We break down cost, comfort, treatment time, and results to help you make the best decision for your smile.</p>
-            <div class="blog-card-footer">
-              <div class="blog-author">
-                <div class="blog-author-avatar" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">DN</div>
-                <span class="blog-author-name">Dr. Nivetha</span>
+              <div class="bp-card-body">
+                <div class="bp-meta">
+                  <span>Mar 3, 2026</span><span class="bp-meta-dot">&#9679;</span><span>4 min read</span>
+                </div>
+                <h2 class="bp-card-title">Laser Gum Specialist in Oddapatti</h2>
+                <p class="bp-card-excerpt">Advanced laser gum treatment offers precision, less pain, and faster recovery. Discover the advantages at Sairam Dental Clinic.</p>
+                <div class="bp-card-footer">
+                  <div class="bp-author">
+                    <div class="bp-avatar" style="background:linear-gradient(135deg,#0e94d4,#1a4fa0);">DR</div>
+                    <span class="bp-author-name">Dr. Raghuraaman</span>
+                  </div>
+                  <a href="#" class="bp-read">Read More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                </div>
               </div>
-              <a href="#" class="blog-read-btn">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            </div>
-          </div>
-        </article>
-        <article class="blog-card reveal" style="transition-delay:.1s;">
-          <div class="blog-card-img">
-            <img src="images/treatments/Dental Implants.webp" alt="Everything About Dental Implants" onerror="this.src='https://placehold.co/600x340/e2e8f0/64748b?text=Implants'" />
-            <span class="blog-category-tag tag-teal">Implantology</span>
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta"><span>June 4, 2026</span><span class="blog-meta-dot">&#9679;</span><span>7 min read</span></div>
-            <h2 class="blog-card-title">Everything You Need to Know About Dental Implants</h2>
-            <p class="blog-card-excerpt">Missing a tooth? Dental implants are the gold standard for permanent tooth replacement. Learn about the procedure, healing timeline, aftercare, and why implants last a lifetime.</p>
-            <div class="blog-card-footer">
-              <div class="blog-author">
-                <div class="blog-author-avatar" style="background:linear-gradient(135deg,#0d9488,#14b8a6);">DR</div>
-                <span class="blog-author-name">Dr. Raghuraaman</span>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="bp-card">
+              <div class="bp-card-img">
+                <img loading="lazy" src="images/treatments/Smile Designing Treatment.jpg" alt="Smile Designing Dharmapuri" onerror="this.src='https://placehold.co/600x338/dde8f5/1a4fa0?text=Smile+Design'" />
+                <span class="bp-cat cat-blue">Cosmetic</span>
               </div>
-              <a href="#" class="blog-read-btn">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            </div>
-          </div>
-        </article>
-        <article class="blog-card reveal" style="transition-delay:.2s;">
-          <div class="blog-card-img">
-            <img src="images/treatments/Pediatric Dentistry Treatment.jpg" alt="Children Love Visiting the Dentist" onerror="this.src='https://placehold.co/600x340/e2e8f0/64748b?text=Kids+Dental'" />
-            <span class="blog-category-tag tag-orange">Pediatric</span>
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta"><span>May 28, 2026</span><span class="blog-meta-dot">&#9679;</span><span>4 min read</span></div>
-            <h2 class="blog-card-title">5 Tips to Make Your Child Love Visiting the Dentist</h2>
-            <p class="blog-card-excerpt">Dental anxiety in children is common but it does not have to be. Discover simple proven strategies to build positive dental habits from an early age and keep your child's teeth healthy for life.</p>
-            <div class="blog-card-footer">
-              <div class="blog-author">
-                <div class="blog-author-avatar" style="background:linear-gradient(135deg,#ea580c,#fb923c);">DN</div>
-                <span class="blog-author-name">Dr. Nivetha</span>
+              <div class="bp-card-body">
+                <div class="bp-meta">
+                  <span>Mar 6, 2026</span><span class="bp-meta-dot">&#9679;</span><span>3 min read</span>
+                </div>
+                <h2 class="bp-card-title">Best Dental Clinic in Dharmapuri</h2>
+                <p class="bp-card-excerpt">Quality dental care combining modern technology with experienced specialists for complete oral health solutions.</p>
+                <div class="bp-card-footer">
+                  <div class="bp-author">
+                    <div class="bp-avatar" style="background:linear-gradient(135deg,#1a4fa0,#0ea5e9);">DR</div>
+                    <span class="bp-author-name">Dr. Raghuraaman</span>
+                  </div>
+                  <a href="#" class="bp-read">Read More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                </div>
               </div>
-              <a href="#" class="blog-read-btn">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            </div>
-          </div>
-        </article>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="bp-card">
+              <div class="bp-card-img">
+                <img loading="lazy" src="images/treatments/ortodoncia invisible.jpg" alt="Invisalign vs Braces" onerror="this.src='https://placehold.co/600x338/dde8f5/7c3aed?text=Invisalign'" />
+                <span class="bp-cat cat-purple">Orthodontics</span>
+              </div>
+              <div class="bp-card-body">
+                <div class="bp-meta">
+                  <span>Jun 10, 2026</span><span class="bp-meta-dot">&#9679;</span><span>5 min read</span>
+                </div>
+                <h2 class="bp-card-title">Invisalign vs Metal Braces: Which Is Right for You?</h2>
+                <p class="bp-card-excerpt">We break down cost, comfort, treatment time and results to help you make the best decision for your perfect smile.</p>
+                <div class="bp-card-footer">
+                  <div class="bp-author">
+                    <div class="bp-avatar" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">DN</div>
+                    <span class="bp-author-name">Dr. Nivetha</span>
+                  </div>
+                  <a href="#" class="bp-read">Read More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="bp-card">
+              <div class="bp-card-img">
+                <img loading="lazy" src="images/treatments/Dental Implants.webp" alt="Dental Implants Guide" onerror="this.src='https://placehold.co/600x338/dde8f5/0d9488?text=Implants'" />
+                <span class="bp-cat cat-teal">Implantology</span>
+              </div>
+              <div class="bp-card-body">
+                <div class="bp-meta">
+                  <span>Jun 4, 2026</span><span class="bp-meta-dot">&#9679;</span><span>7 min read</span>
+                </div>
+                <h2 class="bp-card-title">Everything You Need to Know About Dental Implants</h2>
+                <p class="bp-card-excerpt">Missing a tooth? Dental implants are the gold standard for permanent replacement. Learn the full procedure, healing timeline and aftercare.</p>
+                <div class="bp-card-footer">
+                  <div class="bp-author">
+                    <div class="bp-avatar" style="background:linear-gradient(135deg,#0d9488,#14b8a6);">DR</div>
+                    <span class="bp-author-name">Dr. Raghuraaman</span>
+                  </div>
+                  <a href="#" class="bp-read">Read More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="bp-card">
+              <div class="bp-card-img">
+                <img loading="lazy" src="images/treatments/Pediatric Dentistry Treatment.jpg" alt="Kids Dental Tips" onerror="this.src='https://placehold.co/600x338/dde8f5/ea580c?text=Kids+Dental'" />
+                <span class="bp-cat cat-orange">Pediatric</span>
+              </div>
+              <div class="bp-card-body">
+                <div class="bp-meta">
+                  <span>May 28, 2026</span><span class="bp-meta-dot">&#9679;</span><span>4 min read</span>
+                </div>
+                <h2 class="bp-card-title">5 Tips to Make Your Child Love Visiting the Dentist</h2>
+                <p class="bp-card-excerpt">Dental anxiety in children is common but manageable. Discover proven strategies to build positive dental habits from an early age.</p>
+                <div class="bp-card-footer">
+                  <div class="bp-author">
+                    <div class="bp-avatar" style="background:linear-gradient(135deg,#ea580c,#fb923c);">DN</div>
+                    <span class="bp-author-name">Dr. Nivetha</span>
+                  </div>
+                  <a href="#" class="bp-read">Read More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                </div>
+              </div>
+            </article>
+
+          </div><!-- /bp-track -->
+        </div><!-- /bp-carousel -->
+
+        <!-- Controls -->
+        <div class="bp-controls">
+          <button class="bp-arrow" id="bp-prev" aria-label="Previous">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="bp-dots" id="bp-dots"></div>
+          <button class="bp-arrow" id="bp-next" aria-label="Next">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+
+
       </div>
     </section>
   </main>
+
+  <!-- ══ FOOTER ══ -->
   <footer class="footer">
     <div class="footer-top">
       <div class="container">
@@ -218,7 +494,7 @@
               <img src="images/sairam-logo.png" alt="Sairam Dental Care" width="52" height="52" style="border-radius:10px;" />
               <span>Sairam Dental Care</span>
             </a>
-            <p class="footer-tagline">From a child's first tooth to a teenager's perfect smile we are with you at every step of your dental journey.</p>
+            <p class="footer-tagline">From a child's first tooth to a perfect smile, we are with you at every step of your dental journey.</p>
           </div>
           <div class="footer-col">
             <h4>Quick Links</h4>
@@ -246,9 +522,9 @@
           <div class="footer-col">
             <h4>Contact Us</h4>
             <ul class="footer-contact-list">
-              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span class="contact-link">AN Tower, opp. NGGO Colony, Valluvar Nagar, Dharmapuri 636705.</span></li>
-              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><a href="tel:+919894549244" class="contact-link">+91 98945 49244</a></li>
-              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span>Mon to Sat: 9:30 am to 8:30 pm | Sunday: 9:30 am to 1:00 pm</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="contact-link">AN Tower, opp. NGGO Colony, Valluvar Nagar, Dharmapuri 636705.</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+919894549244" class="contact-link">+91 98945 49244</a></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon–Sat: 9:30 am – 8:30 pm | Sun: 9:30 am – 1:00 pm</span></li>
             </ul>
           </div>
         </div>
@@ -261,20 +537,100 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Bottom Nav -->
   <nav class="mobile-bottom-nav">
-    <a href="index.html" class="mb-nav-item"><div class="mb-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div><span class="mb-label">Home</span></a>
+    <a href="index.html" class="mb-nav-item"><div class="mb-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><span class="mb-label">Home</span></a>
     <a href="treatments.html" class="mb-nav-item"><div class="mb-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3c-1.2 0-2.4.6-3 1.5-.6-.9-1.8-1.5-3-1.5-2.5 0-4 1.5-4 4 0 4.5 1.5 6.5 1.5 8s-.5 4-.5 4.5c0 1 .5 1.5 1.5 1.5 1.2 0 2.2-.8 3.5-2.5 1.3 1.7 2.3 2.5 3.5 2.5 1 0 1.5-.5 1.5-1.5 0-.5-.5-3-.5-4.5 0-1.5 1.5-3.5 1.5-8 0-2.5-1.5-4-4-4z"/></svg></div><span class="mb-label">Treatments</span></a>
-    <a href="tel:+919894549244" class="mb-nav-item mb-call-btn"><div class="mb-icon-solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div><span class="mb-label">Call Us</span></a>
-    <a href="appointment.html" class="mb-nav-item"><div class="mb-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><span class="mb-label">Booking</span></a>
+    <a href="tel:+919894549244" class="mb-nav-item mb-call-btn"><div class="mb-icon-solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><span class="mb-label">Call Us</span></a>
+    <a href="appointment.html" class="mb-nav-item"><div class="mb-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="mb-label">Booking</span></a>
     <a href="https://wa.me/919894549244" class="mb-nav-item" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-      <div class="mb-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
-        </svg>
-      </div>
+      <div class="mb-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></div>
       <span class="mb-label">WhatsApp</span>
     </a>
   </nav>
+
   <script src="script.js"></script>
+  <script>
+    /* ══ BLOG CAROUSEL INIT ══ */
+    (function() {
+      const carousel = document.getElementById('bp-carousel');
+      const track    = document.getElementById('bp-track');
+      const dotsWrap = document.getElementById('bp-dots');
+      const prevBtn  = document.getElementById('bp-prev');
+      const nextBtn  = document.getElementById('bp-next');
+      if (!track || !carousel) return;
+
+      const cards = Array.from(track.querySelectorAll('.bp-card'));
+      let current = 0, autoTimer = null;
+
+      function perView() {
+        if (window.innerWidth <= 580) return 1;
+        if (window.innerWidth <= 900) return 2;
+        return 3;
+      }
+      function totalPages() { return cards.length - perView() + 1; }
+
+      function buildDots() {
+        dotsWrap.innerHTML = '';
+        for (let i = 0; i < totalPages(); i++) {
+          const d = document.createElement('button');
+          d.className = 'bp-dot' + (i === 0 ? ' active' : '');
+          d.setAttribute('aria-label', 'Slide ' + (i + 1));
+          d.addEventListener('click', () => { goTo(i); startAuto(); });
+          dotsWrap.appendChild(d);
+        }
+      }
+
+      function updateUI() {
+        dotsWrap.querySelectorAll('.bp-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+        prevBtn.style.opacity = current === 0 ? '0.35' : '1';
+        nextBtn.style.opacity = current >= totalPages() - 1 ? '0.35' : '1';
+      }
+
+      function goTo(idx) {
+        const pages = totalPages();
+        current = ((idx % pages) + pages) % pages;
+        const gap = parseInt(getComputedStyle(track).gap) || 22;
+        const cardW = cards[0].getBoundingClientRect().width;
+        track.style.transform = `translateX(-${current * (cardW + gap)}px)`;
+        updateUI();
+      }
+
+      function next() { goTo(current + 1 >= totalPages() ? 0 : current + 1); }
+      function prev() { goTo(current - 1 < 0 ? totalPages() - 1 : current - 1); }
+
+      function startAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(next, 3800);
+      }
+
+      prevBtn.addEventListener('click', () => { prev(); startAuto(); });
+      nextBtn.addEventListener('click', () => { next(); startAuto(); });
+
+      carousel.addEventListener('mouseenter', () => clearInterval(autoTimer));
+      carousel.addEventListener('mouseleave', startAuto);
+      carousel.addEventListener('touchstart', () => clearInterval(autoTimer), { passive: true });
+      carousel.addEventListener('touchend', startAuto, { passive: true });
+
+      /* Touch swipe */
+      let touchX = 0;
+      carousel.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+      carousel.addEventListener('touchend', e => {
+        const diff = touchX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); startAuto(); }
+      }, { passive: true });
+
+      let resizeT;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeT);
+        resizeT = setTimeout(() => { current = 0; buildDots(); goTo(0); }, 200);
+      });
+
+      buildDots();
+      goTo(0);
+      startAuto();
+    })();
+  </script>
 </body>
 </html>

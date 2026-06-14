@@ -15,7 +15,7 @@
     /* Premium Invisalign Design Styles */
     .invisalign-hero {
       position: relative;
-      padding: 140px 0 60px;
+      padding: 100px 0 60px;
       background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
       overflow: hidden;
     }
@@ -40,10 +40,16 @@
     }
 
     .inv-hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
       align-items: center;
+      text-align: center;
+    }
+
+    .inv-hero-text {
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .inv-title {
@@ -85,10 +91,14 @@
 
     .inv-hero-img-wrap {
       position: relative;
+      width: 100%;
+      order: -1;
     }
 
     .inv-hero-img {
       width: 100%;
+      height: 400px;
+      object-fit: cover;
       border-radius: 30px;
       box-shadow: 0 24px 64px rgba(14, 165, 233, 0.2);
     }
@@ -526,10 +536,15 @@
     }
 
     @media (max-width: 1024px) {
+      .invisalign-hero {
+        padding: 85px 0 40px;
+      }
       .inv-hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
+        gap: 24px;
+      }
+      .inv-hero-img {
+        height: 250px;
+        border-radius: 20px;
       }
 
       .inv-bento {
@@ -645,7 +660,7 @@
             <a href="appointment.html" class="btn btn-primary btn-lg">Start Your Journey Today</a>
           </div>
           <div class="inv-hero-img-wrap">
-            <img src="images/treatments/ortodoncia invisible.jpg" alt="Invisalign Clear Aligners" class="inv-hero-img">
+            <img loading="lazy" src="images/treatments/ortodoncia invisible.jpg" alt="Invisalign Clear Aligners" class="inv-hero-img">
           </div>
         </div>
       </div>
@@ -806,7 +821,7 @@
           <h2 class="inv-ba-title">Real Results</h2>
           <div class="inv-ba-grid">
             <div class="inv-ba-img-wrap">
-              <img src="https://placehold.co/600x450/e2e8f0/64748b?text=Before" alt="Before Invisalign">
+              <img loading="lazy" src="https://placehold.co/600x450/e2e8f0/64748b?text=Before" alt="Before Invisalign">
               <span class="inv-ba-label">Before</span>
             </div>
             <div class="inv-ba-arrow">
@@ -816,7 +831,7 @@
               </svg>
             </div>
             <div class="inv-ba-img-wrap">
-              <img src="https://placehold.co/600x450/f0f9ff/0ea5e9?text=After" alt="After Invisalign">
+              <img loading="lazy" src="https://placehold.co/600x450/f0f9ff/0ea5e9?text=After" alt="After Invisalign">
               <span class="inv-ba-label">After</span>
             </div>
           </div>
