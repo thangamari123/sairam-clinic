@@ -1707,8 +1707,10 @@ body {
 }
 
 .gallery-tab:hover {
-  background: rgba(26, 79, 160, 0.1);
-  transform: translateY(-1px);
+  background: var(--blue-sky);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 79, 160, 0.2);
 }
 
 .gallery-tab.active {

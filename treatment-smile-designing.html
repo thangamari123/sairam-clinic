@@ -15,7 +15,7 @@
     /* Premium Invisalign Design Styles */
     .invisalign-hero {
       position: relative;
-      padding: 140px 0 60px;
+      padding: 100px 0 60px;
       background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
       overflow: hidden;
     }
@@ -40,10 +40,16 @@
     }
 
     .inv-hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
       align-items: center;
+      text-align: center;
+    }
+
+    .inv-hero-text {
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .inv-title {
@@ -66,6 +72,7 @@
       color: #64748b;
       margin-bottom: 30px;
       line-height: 1.6;
+      text-align: justify;
     }
 
     .inv-hero-tag {
@@ -85,10 +92,14 @@
 
     .inv-hero-img-wrap {
       position: relative;
+      width: 100%;
+      order: -1;
     }
 
     .inv-hero-img {
       width: 100%;
+      height: 400px;
+      object-fit: cover;
       border-radius: 30px;
       box-shadow: 0 24px 64px rgba(14, 165, 233, 0.2);
     }
@@ -152,15 +163,17 @@
 
     .inv-overview-icon {
       color: #0ea5e9;
-      font-size: 1.5rem;
-      line-height: 1;
       flex-shrink: 0;
+      display: flex;
+      align-items: flex-start;
+      margin-top: 2px;
     }
 
     .inv-overview-text {
       font-size: 1.1rem;
       color: #334155;
       line-height: 1.6;
+      text-align: justify;
     }
 
     /* Bento Section */
@@ -509,6 +522,7 @@
       margin-right: auto;
       position: relative;
       z-index: 2;
+      text-align: justify;
     }
 
     .inv-cta .btn {
@@ -526,10 +540,42 @@
     }
 
     @media (max-width: 1024px) {
+      .invisalign-hero {
+        padding: 85px 0 40px;
+      }
+      .inv-cta {
+        padding: 40px 0;
+      }
+      .inv-cta-box {
+        padding: 40px 20px;
+        border-radius: 24px;
+      }
+      .inv-cta-desc {
+        font-size: 1rem;
+        margin-bottom: 24px;
+      }
+      .inv-cta .btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+        width: 100%;
+      }
+      .inv-overview-item {
+        padding: 20px;
+        gap: 12px;
+      }
+      .inv-overview-text {
+        font-size: 0.95rem;
+      }
+      .inv-overview-icon svg {
+        width: 20px;
+        height: 20px;
+      }
       .inv-hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
+        gap: 24px;
+      }
+      .inv-hero-img {
+        height: 250px;
+        border-radius: 20px;
       }
 
       .inv-bento {
@@ -611,7 +657,7 @@
           </div>
         </div>
         <a href="treatments.html" class="nav-link active">Treatments</a>
-        <a href="index.html#gallery" class="nav-link">Smile Gallery</a>
+        <a href="before-after.html" class="nav-link">Smile Gallery</a>
 <a href="index.html#contact" class="nav-link">Contact</a>
         <a href="blog.html" class="nav-link">Blog</a>
       </nav>
@@ -629,7 +675,7 @@
         <a href="dr-raghuraaman.html" class="mobile-nav-link" style="padding-left: 2.5rem; font-size: 1rem; color: var(--blue-sky);">- Dr. Raghuraaman</a>
         <a href="dr-nivetha.html" class="mobile-nav-link" style="padding-left: 2.5rem; font-size: 1rem; color: var(--blue-sky);">- Dr. Nivetha</a>
         <a href="treatments.html" class="mobile-nav-link">Treatments</a>
-        <a href="index.html#gallery" class="mobile-nav-link">Smile Gallery</a>
+        <a href="before-after.html" class="mobile-nav-link">Smile Gallery</a>
 <a href="index.html#contact" class="mobile-nav-link">Contact</a>
         <a href="blog.html" class="mobile-nav-link">Blog</a>
         <a href="appointment.html" class="btn btn-primary mob-cta">Book Appointment</a>
@@ -669,19 +715,19 @@
         <h2 class="inv-section-title" style="margin-bottom: 40px;">About Smile Designing</h2>
         <div class="inv-overview-list">
           <div class="inv-overview-item">
-            <div class="inv-overview-icon">⮫</div>
+            <div class="inv-overview-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
             <div class="inv-overview-text">Smile design is a combination of various cosmetic dental procedures to enhance your aesthetics.</div>
           </div>
           <div class="inv-overview-item">
-            <div class="inv-overview-icon">⮫</div>
+            <div class="inv-overview-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
             <div class="inv-overview-text">Treatments can include teeth whitening, veneers, composite bonding, tooth implants, and orthodontics to improve the overall appearance.</div>
           </div>
           <div class="inv-overview-item">
-            <div class="inv-overview-icon">⮫</div>
+            <div class="inv-overview-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
             <div class="inv-overview-text">The treatment plan is meticulously customised for each patient to produce a flawless, natural-looking smile.</div>
           </div>
           <div class="inv-overview-item">
-            <div class="inv-overview-icon">⮫</div>
+            <div class="inv-overview-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
             <div class="inv-overview-text">We take into account several critical factors, including facial appearance, skin tone, gum tissues, and lips when designing your smile.</div>
           </div>
         </div>
@@ -830,7 +876,7 @@
               <li><a href="index.html#hero">Home</a></li>
               <li><a href="index.html#about">About Us</a></li>
               <li><a href="treatments.html">Treatments</a></li>
-              <li><a href="index.html#gallery">Smile Gallery</a></li>
+              <li><a href="before-after.html">Smile Gallery</a></li>
               <li><a href="index.html#testimonials">Testimonials</a></li>
               <li><a href="index.html#contact">Contact</a></li>
               <li><a href="blog.html">Blog</a></li>
