@@ -2503,7 +2503,7 @@ body {
 }
 
 .testi-slider-wrap {
-  max-width:  450px;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
 }
@@ -2524,9 +2524,9 @@ body {
 }
 
 .testi-card {
-  min-width: 100%;
-  flex: 0 0 100%;
-  scroll-snap-align: center;
+  min-width: 0;
+  flex: 0 0 calc((100% - 48px) / 3);
+  scroll-snap-align: start;
   background: #ffffff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   border: 1px solid var(--border);
@@ -2535,6 +2535,20 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+@media (max-width: 992px) {
+  .testi-card {
+    flex: 0 0 calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 768px) {
+  .testi-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+    scroll-snap-align: center;
+  }
 }
 
 .testi-card-top {

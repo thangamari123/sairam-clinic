@@ -101,83 +101,134 @@
       </div>
     </section>
 
-    <section class="section doctor-profile-section" id="doctor-profile" style="padding: 80px 0; background: #ffffff;">
-      <div class="container">
-        <div class="dr-card reveal" style="background: transparent; box-shadow: none; border: none;">
-          <!-- Left side: Orange bar and Image -->
-          <div class="dr-visual">
-            <div class="dr-orange-line"></div>
-            <div class="dr-image-container">
-              <img loading="lazy" src="images/dr-nivetha.png" alt="Dr. Nivetha">
+    <style>
+      .premium-doctor { padding: 100px 0; background: #fafcff; overflow: hidden; position: relative; }
+      .premium-doctor::before { content: ''; position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; background: rgba(14, 165, 233, 0.05); filter: blur(100px); border-radius: 50%; z-index: 0; }
+      
+      .pd-container { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 4fr 6fr; gap: 60px; align-items: start; }
+      @media (max-width: 992px) { .pd-container { grid-template-columns: 1fr; gap: 40px; } }
+      
+      /* Visual Side */
+      .pd-visual { position: relative; display: flex; justify-content: center; }
+      .pd-image-frame { position: relative; width: 100%; max-width: 420px; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(13, 27, 62, 0.12); background: linear-gradient(to bottom, #e0f2fe, #f0f9ff); aspect-ratio: 1/1; display: flex; align-items: flex-end; justify-content: center; }
+      .pd-image-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; border-bottom-left-radius: 24px; border-bottom-right-radius: 24px; }
+      
+      /* Content Side */
+      .pd-content { padding-top: 20px; }
+      
+      .pd-role-tag { display: inline-flex; align-items: center; background: rgba(14, 165, 233, 0.1); color: #0284c7; padding: 8px 16px; border-radius: 100px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; border: 1px solid rgba(14, 165, 233, 0.2); }
+      
+      .pd-name { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; color: #0d1b3e; line-height: 1.1; margin-bottom: 24px; }
+      .pd-name span { color: #0ea5e9; }
+      
+      .pd-bio { font-size: 1.05rem; color: #475569; line-height: 1.8; margin-bottom: 20px; text-align: justify; }
+      
+      /* Specializations */
+      .pd-spec-title { font-size: 1.1rem; font-weight: 700; color: #0d1b3e; margin: 30px 0 16px; display: flex; align-items: center; gap: 8px; }
+      .pd-spec-title::before { content: ''; width: 24px; height: 3px; background: #0ea5e9; border-radius: 2px; }
+      .pd-spec-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+      .pd-spec-pill { background: #fff; border: 1px solid #e2e8f0; padding: 10px 20px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; color: #334155; display: flex; align-items: center; gap: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); transition: all 0.2s ease; cursor: default; }
+      .pd-spec-pill:hover { border-color: #0ea5e9; color: #0ea5e9; transform: translateY(-2px); box-shadow: 0 8px 16px rgba(14, 165, 233, 0.08); }
+      .pd-spec-pill svg { color: #0ea5e9; }
+      
+      /* Stats Grid */
+      .pd-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
+      @media (max-width: 1200px) { .pd-stats { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 576px) { .pd-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+      .pd-stat-card { background: #fff; padding: 16px 12px; border-radius: 16px; border: 1px solid #f1f5f9; box-shadow: 0 4px 12px rgba(0,0,0,0.02); text-align: center; transition: transform 0.3s ease; }
+      .pd-stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.05); border-color: #e2e8f0; }
+      .pd-stat-icon { width: 40px; height: 40px; border-radius: 12px; background: rgba(14, 165, 233, 0.1); color: #0ea5e9; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+      .pd-stat-icon svg { width: 20px; height: 20px; }
+      .pd-stat-num { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: #0d1b3e; line-height: 1; margin-bottom: 6px; }
+      .pd-stat-label { font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+      /* CTA */
+      .pd-cta { display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #0d1b3e, #1a367a); color: white; padding: 16px 36px; border-radius: 12px; font-weight: 700; font-size: 1.05rem; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(13, 27, 62, 0.2); text-decoration: none; }
+      .pd-cta:hover { transform: translateY(-2px); box-shadow: 0 15px 25px rgba(13, 27, 62, 0.3); color: white; }
+      .pd-cta svg { transition: transform 0.3s ease; }
+      .pd-cta:hover svg { transform: translateX(5px); }
+    </style>
+
+    <section class="premium-doctor" id="doctor-profile">
+      <div class="pd-container">
+        <!-- Visual Column -->
+        <div class="pd-visual reveal">
+          <div class="pd-image-frame">
+            <img loading="lazy" src="images/dr-nivetha.png" alt="Dr. Nivetha - Orthodontist">
+          </div>
+        </div>
+        
+        <!-- Content Column -->
+        <div class="pd-content reveal" style="transition-delay: 0.2s;">
+          <div class="pd-role-tag">Consultant Orthodontist &amp; Dentofacial Orthopedics</div>
+          <h2 class="pd-name">Dr. Nivetha <span>MDS</span></h2>
+          
+          <p class="pd-bio">Dr. Nivetha is a passionate orthodontist whose work is defined by innovation and an unending commitment to learning. She completed her BDS from Annamalai University and Master’s in Orthodontics from Vivekananda Institute of Dental Sciences.</p>
+          
+          <p class="pd-bio">With 8+ years of dedicated experience and 100+ completed cases in Orthodontics, she underwent specialized in-house aligner training and smile designing from a leading institute in India. Presently, she works as an aligner designer consultant for a top 5 aligner company.</p>
+          
+          <p class="pd-bio">Specializing in designing aligner cases with digital software technology, she has a portfolio of 500+ successful smile makeovers. She is recognized as the first certified Orthodontist Invisalign provider in Dharmapuri, a certified expert in Treatment Planning, and a Graphy Practitioner.</p>
+          
+          <!-- Specializations -->
+          <div class="pd-spec-title">Areas of Expertise</div>
+          <div class="pd-spec-grid">
+            <div class="pd-spec-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              Invisalign Provider
+            </div>
+            <div class="pd-spec-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              Clear Aligners
+            </div>
+            <div class="pd-spec-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              Braces &amp; Orthodontics
+            </div>
+            <div class="pd-spec-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              Smile Design
             </div>
           </div>
           
-          <!-- Right side: Content -->
-          <div class="dr-content">
-            <h2 class="dr-title">About <span>me</span></h2>
-            
-            <p class="dr-bio">Dr Nivetha is a passionate orthodontist whose work is defined by innovation, and an unending commitment to learning. She completed her BDS from Annamalai University and Master’s in Orthodontics from Vivekananda Institute of Dental Sciences.</p>
-            
-            <p class="dr-bio">With 8+ years of dedicated experience in dentistry and 100+ completed cases in Orthodontics. Also underwent a in-house aligner training and Smile designing from a leading institute in India. Presently she is working as a aligner designer consultant in a top 5 aligner company.</p>
-            
-            <p class="dr-bio">She is also specialised in designing aligner cases with digital software technology and had a experience of 500+ smile makeovers. Her deep understanding of aligner biomechanics, combined with interest in braces treatments, allows her to treat cases with clarity and confidence. She is a recognised and a first certified Orthodontist Invisalign provider in Dharmapuri, in addition to being a certified expert in Treatment Planning and a Graphy Practitioner.</p>
-            
-            <div class="dr-stats">
-              <div class="dr-stat-card">
-                <div class="dr-stat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                  </svg>
-                </div>
-                <div class="dr-stat-text">
-                  <h3>8+</h3>
-                  <p>YEARS OF<br>EXPERIENCE</p>
-                </div>
+          <!-- Stats Grid -->
+          <div class="pd-stats">
+            <div class="pd-stat-card">
+              <div class="pd-stat-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
               </div>
-              
-              <div class="dr-stat-card">
-                <div class="dr-stat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                  </svg>
-                </div>
-                <div class="dr-stat-text">
-                  <h3>100%</h3>
-                  <p>PATIENT<br>SATISFACTION</p>
-                </div>
+              <div class="pd-stat-num">8+</div>
+              <div class="pd-stat-label">Years of<br>Experience</div>
+            </div>
+            
+            <div class="pd-stat-card">
+              <div class="pd-stat-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
               </div>
-              
-              <div class="dr-stat-card">
-                <div class="dr-stat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  </svg>
-                </div>
-                <div class="dr-stat-text">
-                  <h3>4k+</h3>
-                  <p>PATIENTS<br>TREATED</p>
-                </div>
+              <div class="pd-stat-num">100%</div>
+              <div class="pd-stat-label">Patient<br>Satisfaction</div>
+            </div>
+            
+            <div class="pd-stat-card">
+              <div class="pd-stat-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
               </div>
-              
-              <div class="dr-stat-card">
-                <div class="dr-stat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M8 21h8M12 17v4M7 4h10M6 4h12a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM4 12v-2c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v2"></path>
-                    <path d="M8 12v4a4 4 0 0 0 8 0v-4"></path>
-                  </svg>
-                </div>
-                <div class="dr-stat-text">
-                  <h3>30+</h3>
-                  <p>ADVANCE<br>CERTIFICATE</p>
-                </div>
+              <div class="pd-stat-num">4k+</div>
+              <div class="pd-stat-label">Patients<br>Treated</div>
+            </div>
+            
+            <div class="pd-stat-card">
+              <div class="pd-stat-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10M6 4h12a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM4 12v-2c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v2"></path><path d="M8 12v4a4 4 0 0 0 8 0v-4"></path></svg>
               </div>
+              <div class="pd-stat-num">30+</div>
+              <div class="pd-stat-label">Advance<br>Certificates</div>
             </div>
           </div>
+          
+          <a href="appointment.html" class="pd-cta">
+            Book Consultation
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
         </div>
       </div>
     </section>

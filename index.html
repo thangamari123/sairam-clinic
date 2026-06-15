@@ -189,74 +189,74 @@
       </div>
     </section>
 
-    <!-- ═══════════════ ABOUT US ═══════════════ -->
-    <section class="section about-section" id="about" style="background: #ffffff;">
+    <!-- ═══════════════ PREMIUM ABOUT US ═══════════════ -->
+    <style>
+      .premium-about { padding: 100px 0; background: #fafcff; overflow: hidden; position: relative; }
+      .premium-about::before { content: ''; position: absolute; top: -10%; left: -5%; width: 400px; height: 400px; background: rgba(14, 165, 233, 0.08); filter: blur(80px); border-radius: 50%; z-index: 0; }
+      .premium-about::after { content: ''; position: absolute; bottom: -10%; right: -5%; width: 500px; height: 500px; background: rgba(13, 27, 62, 0.04); filter: blur(100px); border-radius: 50%; z-index: 0; }
+      
+      .pa-container { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+      @media (max-width: 992px) { .pa-container { grid-template-columns: 1fr; gap: 40px; } }
+      
+      .pa-visual { position: relative; }
+      .pa-image-wrapper { position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(13, 27, 62, 0.12); }
+      .pa-image-wrapper img { width: 100%; height: auto; display: block; object-fit: cover; transition: transform 0.5s ease; }
+      .pa-image-wrapper:hover img { transform: scale(1.03); }
+      
+      .pa-floating-badge { position: absolute; bottom: -20px; right: -20px; background: #fff; padding: 20px 24px; border-radius: 20px; box-shadow: 0 16px 32px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 16px; border: 1px solid rgba(226, 232, 240, 0.8); z-index: 2; animation: floatY 6s ease-in-out infinite; }
+      @media (max-width: 768px) { .pa-floating-badge { right: 20px; bottom: 20px; padding: 16px; } }
+      @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+      .pa-badge-icon { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #0ea5e9, #0284c7); display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 8px 16px rgba(14, 165, 233, 0.3); }
+      .pa-badge-text { font-family: var(--font-display); }
+      .pa-badge-num { font-size: 1.5rem; font-weight: 800; color: #0d1b3e; line-height: 1; margin-bottom: 4px; }
+      .pa-badge-desc { font-size: 0.85rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+      
+      .pa-content { padding-right: 20px; }
+      @media (max-width: 992px) { .pa-content { padding-right: 0; } }
+      .pa-tag { display: inline-flex; align-items: center; background: rgba(14, 165, 233, 0.1); color: #0284c7; padding: 8px 16px; border-radius: 100px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; border: 1px solid rgba(14, 165, 233, 0.2); }
+      .pa-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #0d1b3e; line-height: 1.15; margin-bottom: 24px; }
+      .pa-desc { font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 32px; text-align: justify; }
+      
+      .pa-features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+      @media (max-width: 576px) { .pa-features { grid-template-columns: 1fr; gap: 16px; } }
+      .pa-feature { display: flex; align-items: center; gap: 16px; padding: 16px; background: #fff; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.3s ease; border: 1px solid #f1f5f9; }
+      .pa-feature:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); border-color: #e2e8f0; }
+      .pa-f-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(14, 165, 233, 0.1); display: flex; align-items: center; justify-content: center; color: #0ea5e9; }
+      .pa-f-text { font-weight: 700; color: #1e293b; font-size: 0.95rem; }
+      
+      .pa-cta { display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #0d1b3e, #1a367a); color: white; padding: 16px 32px; border-radius: 12px; font-weight: 700; font-size: 1.05rem; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(13, 27, 62, 0.2); text-decoration: none; }
+      .pa-cta:hover { transform: translateY(-2px); box-shadow: 0 15px 25px rgba(13, 27, 62, 0.3); color: white; }
+      .pa-cta svg { transition: transform 0.3s ease; }
+      .pa-cta:hover svg { transform: translateX(5px); }
+    </style>
+
+    <section class="premium-about" id="about">
       <div class="container">
-        <div class="section-header reveal" style="margin-bottom: 30px;">
+        <div class="section-header reveal" style="margin-bottom: 50px;">
           <h2 class="section-title" style="display: inline-block; color: var(--navy); margin-bottom: 8px;">About Us</h2>
           <div style="width: 80px; height: 4px; background: var(--grad-primary); margin: 0 auto; border-radius: 4px;"></div>
         </div>
-        <div class="about-card reveal" style="background: transparent; box-shadow: none; border: none;">
-          <div class="about-grid">
-            <div class="about-visual">
-            <div class="about-img-wrap">
-              <div class="about-img-inner">
-                <!-- About Clinic Image -->
-                <img loading="lazy" src="images/home-page-about.png" alt="Sairam Dental Care Clinic" class="about-clinic-img" />
-              </div>
-            </div>
+      </div>
+      <div class="pa-container">
+        <!-- Visual Column -->
+        <div class="pa-visual reveal">
+          <div class="pa-image-wrapper">
+            <img loading="lazy" src="images/home-page-about.png" alt="Sairam Dental Care Clinic">
           </div>
-          <div class="about-content">
-            <span class="section-tag">About SAIRAM Dental Clinic</span>
-            <h2 class="section-title">Your Journey to Confidence Begins Here!</h2>
-            <p class="about-lead" style="text-align: justify;">Sairam dental care located in Dharmapuri, with Leading Dentist In Oddapatti, is the
-              Dental Hospital with exclusive root canal, Braces &amp; Invisalign center. Led by renowned <a href="dr-raghuraaman.html" style="color: var(--blue-sky); text-decoration: underline;">Dr. Raghuraaman</a>
-              (Periodontist) and Dr. Nivetha Raghuraaman (Orthodontist) Sairam dental care offers gum treatment with
-              expertise in laser, root canal treatment and digital smile correction with advanced technology aim to
-              focus on aesthetics, comfort and precision. The clinic also specializes in Invisalign treatment, digital
-              smile makeover, laser gum care, dental implants, root canal therapy, extractions and full-mouth
-              rehabilitation blending compassionate care and clinical excellence.</p>
-            <div class="about-points">
-              <div class="about-point">
-                <div class="ap-icon">
-                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" />
-                    <polyline points="22 4 12 14.01 9 11.01" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </div>
-                <div><strong>Friendly Environment</strong></div>
-              </div>
-              <div class="about-point">
-                <div class="ap-icon">
-                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" />
-                    <polyline points="22 4 12 14.01 9 11.01" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </div>
-                <div><strong>Experienced Dental</strong></div>
-              </div>
-              <div class="about-point">
-                <div class="ap-icon">
-                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" />
-                    <polyline points="22 4 12 14.01 9 11.01" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </div>
-                <div><strong>Personalized Patient care</strong></div>
-              </div>
-              <div class="about-point">
-                <div class="ap-icon">
-                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" />
-                    <polyline points="22 4 12 14.01 9 11.01" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </div>
-                <div><strong>Pain-Free Dentistry</strong></div>
-              </div>
-            </div>
-            <a href="#about" class="btn btn-primary btn-lg">Learn More About Us &rarr;</a>
-          </div>
+
         </div>
+        
+        <!-- Content Column -->
+        <div class="pa-content reveal" style="transition-delay: 0.2s;">
+          <h2 class="pa-title">Your Journey to Confidence Begins Here</h2>
+          <p class="pa-desc">Sairam dental care located in Dharmapuri, with Leading Dentist In Oddapatti, is the Dental Hospital with exclusive root canal, Braces &amp; Invisalign center. Led by renowned <a href="dr-raghuraaman.html" style="color: #0ea5e9; font-weight: 600; text-decoration: none; border-bottom: 2px solid rgba(14,165,233,0.3); transition: border-color 0.2s;">Dr. Raghuraaman</a> (Periodontist) and Dr. Nivetha Raghuraaman (Orthodontist), we offer gum treatment with expertise in laser, root canal treatment and digital smile correction with advanced technology aiming to focus on aesthetics, comfort and precision. The clinic also specializes in Invisalign treatment, digital smile makeover, laser gum care, dental implants, extractions and full-mouth rehabilitation blending compassionate care and clinical excellence.</p>
+          
+
+          
+          <a href="appointment.html" class="pa-cta">
+            Discover Our Clinic
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
         </div>
       </div>
     </section>
