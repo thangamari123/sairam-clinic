@@ -35,7 +35,7 @@
     .blog-section-heading h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; color: #0d1b3e; margin: 0; line-height: 1.2; }
     
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    .blog-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 24px rgba(13,27,62,0.07); border: 1px solid rgba(13,27,62,0.06); transition: transform 0.32s ease, box-shadow 0.32s ease; display: flex; flex-direction: column; }
+    .blog-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 24px rgba(13,27,62,0.07); border: 1px solid rgba(13,27,62,0.06); transition: transform 0.32s ease, box-shadow 0.32s ease; display: flex; flex-direction: column; min-width: calc((100% - 56px) / 3); flex: 0 0 calc((100% - 56px) / 3); }
     .blog-card:hover { transform: translateY(-8px); box-shadow: 0 20px 48px rgba(13,27,62,0.13); }
     
     .blog-card-img { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #e2e8f0; }
@@ -66,7 +66,7 @@
       .blog-section { padding: 44px 0 52px; overflow: hidden; } 
       .blog-grid { display: flex; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding: 0 20px 20px; scrollbar-width: none; -webkit-overflow-scrolling: touch; } 
       .blog-grid::-webkit-scrollbar { display: none; }
-      .blog-card { flex: 0 0 85%; scroll-snap-align: center; }
+      .blog-card { min-width: 85%; flex: 0 0 85%; scroll-snap-align: center; }
       .blog-section-heading { margin-bottom: 24px; } 
       .blog-section-heading h2 { font-size: 1.6rem; }
       .blog-card-body { padding: 18px 18px 16px; }
@@ -190,13 +190,13 @@
     </section>
 
     <!-- ═══════════════ ABOUT US ═══════════════ -->
-    <section class="section about-section" id="about" style="background: #fafcff;">
+    <section class="section about-section" id="about" style="background: #ffffff;">
       <div class="container">
         <div class="section-header reveal" style="margin-bottom: 30px;">
           <h2 class="section-title" style="display: inline-block; color: var(--navy); margin-bottom: 8px;">About Us</h2>
           <div style="width: 80px; height: 4px; background: var(--grad-primary); margin: 0 auto; border-radius: 4px;"></div>
         </div>
-        <div class="about-card reveal">
+        <div class="about-card reveal" style="background: transparent; box-shadow: none; border: none;">
           <div class="about-grid">
             <div class="about-visual">
             <div class="about-img-wrap">
@@ -598,7 +598,7 @@
         </div><!-- /carousel-wrap -->
 
         <!-- Controls -->
-        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:28px;">
+        <div style="display:none;align-items:center;justify-content:center;gap:16px;margin-top:28px;">
           <button class="dc2-arrow" id="dc2-prev" aria-label="Previous">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           </button>
@@ -905,7 +905,7 @@
         </div><!-- /rc-wrap -->
 
         <!-- Carousel Controls -->
-        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:26px;">
+        <div style="display:none;align-items:center;justify-content:center;gap:16px;margin-top:26px;">
           <button class="rc-arrow" id="rc-prev" aria-label="Previous">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           </button>
@@ -1557,13 +1557,12 @@
     </section>
 
     <!-- ═══════════════ LATEST BLOGS ═══════════════ -->
-    <section class="blog-section" style="padding-top: 0;">
+    <section class="blog-section">
       <div class="blog-section-heading reveal">
         <div class="blog-section-tag">Latest News &amp; Blog</div>
         <h2>From Our Dental Experts</h2>
       </div>
-      <div class="blog-slider-wrap reveal">
-        <div class="blog-slider" id="blog-slider">
+      <div class="blog-grid reveal">
           <!-- Card 1 -->
           <article class="blog-card" id="bcard-0">
             <div class="blog-card-img">
@@ -1636,192 +1635,31 @@
             </div>
           </article>
 
-          <!-- Card 4 (Dup 1) -->
-          <article class="blog-card" id="bcard-3">
-            <div class="blog-card-img">
-              <img loading="lazy" src="images/treatments/Pediatric Dentistry Treatment.jpg" alt="Pediatric Dentistry in Dharmapuri" onerror="this.src='https://placehold.co/600x340/e2e8f0/64748b?text=Pediatric+Dentistry'" />
-              <span class="blog-category-tag tag-green">Pediatric</span>
-            </div>
-            <div class="blog-card-body">
-              <div class="blog-meta">
-                <span>March 1, 2026</span>
-                <span class="blog-meta-dot">&#9679;</span>
-                <span>Pediatric Dentistry in Dharmapuri</span>
-              </div>
-              <h2 class="blog-card-title">Pediatric Dentistry in Dharmapuri</h2>
-              <p class="blog-card-excerpt">Pediatric Dentistry in Dharmapuri – Gentle Dental Care at Sairam Dental Clinic</p>
-              <div class="blog-card-footer">
-                <div class="blog-author">
-                  <div class="blog-author-avatar" style="background:linear-gradient(135deg,#0d9488,#14b8a6);">DN</div>
-                  <span class="blog-author-name">Dr. Nivetha</span>
-                </div>
-                <a href="blog.html" class="blog-read-btn">read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
-            </div>
-          </article>
-          
-          <!-- Card 5 (Dup 2) -->
-          <article class="blog-card" id="bcard-4">
-            <div class="blog-card-img">
-              <img loading="lazy" src="images/treatments/Laser Gum.jpg" alt="Laser Gum Specialist in Oddapatti" onerror="this.src='https://placehold.co/600x340/e2e8f0/64748b?text=Laser+Gum'" />
-              <span class="blog-category-tag tag-teal">Laser Dentistry</span>
-            </div>
-            <div class="blog-card-body">
-              <div class="blog-meta">
-                <span>March 3, 2026</span>
-                <span class="blog-meta-dot">&#9679;</span>
-                <span>Laser Gum Specialist in Oddapatti</span>
-              </div>
-              <h2 class="blog-card-title">Laser Gum Specialist in Oddapatti</h2>
-              <p class="blog-card-excerpt">Laser Gum Specialist in Oddapatti – Advanced Gum Care at Sairam Dental Clinic</p>
-              <div class="blog-card-footer">
-                <div class="blog-author">
-                  <div class="blog-author-avatar" style="background:linear-gradient(135deg,#0e94d4,#1a4fa0);">DR</div>
-                  <span class="blog-author-name">Dr. Raghuraaman</span>
-                </div>
-                <a href="blog.html" class="blog-read-btn">read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
-            </div>
-          </article>
 
-          <!-- Card 6 (Dup 3) -->
-          <article class="blog-card" id="bcard-5">
-            <div class="blog-card-img">
-              <img loading="lazy" src="images/treatments/Smile Designing Treatment.jpg" alt="Dental Clinic in Dharmapuri" onerror="this.src='https://placehold.co/600x340/e2e8f0/64748b?text=Dental+Clinic'" />
-              <span class="blog-category-tag tag-blue">Dental Care</span>
-            </div>
-            <div class="blog-card-body">
-              <div class="blog-meta">
-                <span>March 6, 2026</span>
-                <span class="blog-meta-dot">&#9679;</span>
-                <span>Dental Clinic in Dharmapuri</span>
-              </div>
-              <h2 class="blog-card-title">Dental Clinic in Dharmapuri</h2>
-              <p class="blog-card-excerpt">Dental Clinic in Dharmapuri – Quality Care at Sairam Dental Clinic</p>
-              <div class="blog-card-footer">
-                <div class="blog-author">
-                  <div class="blog-author-avatar">DR</div>
-                  <span class="blog-author-name">Dr. Raghuraaman</span>
-                </div>
-                <a href="blog.html" class="blog-read-btn">read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
-            </div>
-          </article>
 
         </div>
-        
-        <div class="testi-controls">
-          <button class="testi-btn" id="bprev" aria-label="Previous">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <div class="testi-dots" id="bdots"></div>
-          <button class="testi-btn" id="bnext" aria-label="Next">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
       <script>
-        (function () {
-          const track = document.getElementById('blog-slider');
-          const wrap = document.querySelector('.blog-slider-wrap');
-          const prev = document.getElementById('bprev');
-          const next = document.getElementById('bnext');
-          const dotsCont = document.getElementById('bdots');
-          if (!track || !wrap) return;
-
-          let cur = 0;
-          let at;
-          let rt;
-          const total = 6;
+        document.addEventListener('DOMContentLoaded', () => {
+          const bGrid = document.querySelector('.blog-grid');
+          if (!bGrid) return;
+          let isHovered = false;
+          bGrid.addEventListener('touchstart', () => isHovered = true, {passive: true});
+          bGrid.addEventListener('touchend', () => {
+            setTimeout(() => isHovered = false, 2000);
+          }, {passive: true});
           
-          function getItemsPerView() {
-            if (window.innerWidth <= 600) return 1;
-            if (window.innerWidth <= 900) return 2;
-            return 3;
-          }
-
-          function pages() {
-            return total - getItemsPerView() + 1;
-          }
-
-          function buildDots() {
-            dotsCont.innerHTML = '';
-            const p = pages();
-            for (let i = 0; i < p; i++) {
-              const d = document.createElement('button');
-              d.className = 'tdot' + (i === 0 ? ' active' : '');
-              d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-              d.onclick = () => { cur = i; goTo(cur); resetAuto(); };
-              dotsCont.appendChild(d);
-            }
-          }
-
-          function goTo(idx) {
-            const p = pages();
-            if (idx >= p) idx = 0;
-            if (idx < 0) idx = p - 1;
-            cur = idx;
+          setInterval(() => {
+            if (window.innerWidth > 600 || isHovered) return;
+            const scrollMax = bGrid.scrollWidth - bGrid.clientWidth;
+            if (scrollMax <= 0) return;
             
-            let cardWidth;
-            if (window.innerWidth <= 600) {
-              cardWidth = track.offsetWidth;
-            } else if (window.innerWidth <= 900) {
-              cardWidth = (track.offsetWidth - 28) / 2;
+            if (bGrid.scrollLeft >= scrollMax - 5) {
+              bGrid.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
-              cardWidth = (track.offsetWidth - 56) / 3;
+              bGrid.scrollBy({ left: bGrid.clientWidth * 0.85, behavior: 'smooth' });
             }
-            
-            track.style.transform = `translateX(-${cur * (cardWidth + 28)}px)`;
-            
-            Array.from(dotsCont.children).forEach((d, i) => {
-              d.className = i === cur ? 'tdot active' : 'tdot';
-            });
-          }
-
-          function nextSlide() {
-            cur++;
-            if (cur >= pages()) cur = 0;
-            goTo(cur);
-          }
-
-          function startAuto() {
-            at = setInterval(nextSlide, 3500);
-          }
-
-          function resetAuto() {
-            clearInterval(at);
-            startAuto();
-          }
-
-          prev.onclick = () => { cur--; goTo(cur); resetAuto(); };
-          next.onclick = () => { cur++; goTo(cur); resetAuto(); };
-
-          wrap.addEventListener('mouseenter', () => clearInterval(at));
-          wrap.addEventListener('mouseleave', startAuto);
-
-          let sx = 0;
-          wrap.addEventListener('touchstart', e => { sx = e.touches[0].clientX; clearInterval(at); }, { passive: true });
-          wrap.addEventListener('touchend', e => {
-            const dx = sx - e.changedTouches[0].clientX;
-            if (Math.abs(dx) > 40) {
-              if (dx > 0) cur++; else cur--;
-              goTo(cur);
-            }
-            startAuto();
-          }, { passive: true });
-
-          window.addEventListener('resize', () => {
-            clearTimeout(rt);
-            rt = setTimeout(() => { cur = 0; buildDots(); goTo(0); }, 200);
-          });
-
-          buildDots(); goTo(0); startAuto();
-        })();
+          }, 3000);
+        });
       </script>
     </section>
 
@@ -1958,6 +1796,148 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- ═══════════════ WELCOME POPUP / QUIZ ═══════════════ -->
+  <style>
+    .quiz-step { display: none; animation: fadeIn 0.4s ease; text-align: left; }
+    .quiz-step.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .quiz-opt { display: block; width: 100%; text-align: left; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 14px 16px; font-size: 0.95rem; color: #334155; font-weight: 500; cursor: pointer; transition: all 0.2s; margin-bottom: 10px; }
+    .quiz-opt:hover { background: #f1f5f9; border-color: #cbd5e1; }
+    .quiz-progress { display: flex; gap: 6px; margin-bottom: 24px; }
+    .quiz-dot { flex: 1; height: 4px; border-radius: 4px; background: #e2e8f0; transition: background 0.3s; }
+    .quiz-dot.filled { background: #1a4fa0; }
+  </style>
+
+  <div id="welcomePopup" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(13,27,62,0.8);z-index:10000;align-items:center;justify-content:center;backdrop-filter:blur(8px);padding:20px;opacity:0;transition:opacity 0.4s ease;">
+    <div style="background:#fff;border-radius:24px;max-width:480px;width:100%;padding:40px 32px;box-shadow:0 24px 48px rgba(0,0,0,0.2);position:relative;transform:scale(0.95);transition:transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);" id="welcomePopupContent">
+      <button onclick="closeWelcomePopup()" style="position:absolute;top:16px;right:16px;background:rgba(13,27,62,0.06);border:none;width:32px;height:32px;border-radius:50%;color:#0d1b3e;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;" onmouseover="this.style.background='rgba(13,27,62,0.1)'" onmouseout="this.style.background='rgba(13,27,62,0.06)'">&#x2715;</button>
+      
+      <!-- STEP 0: INTRO -->
+      <div class="quiz-step active" id="quizStep0" style="text-align:center;">
+        <div style="margin:0 auto 20px; display:flex; justify-content:center;">
+          <img src="images/sairam-logo.png" alt="Sairam Dental Care Logo" style="height:72px; width:auto; object-fit:contain;">
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:#0d1b3e;margin:0 0 8px;line-height:1.3;">😊 Find the Best Treatment for Your Smile</h3>
+        <p style="font-size:0.95rem;color:#64748b;line-height:1.6;margin:0 0 24px;">Take a 30-second smile assessment and get personalized recommendations.</p>
+        <button onclick="nextQuizStep(1)" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;font-size:1.05rem;border:none;cursor:pointer;">Start Assessment</button>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="quiz-step" id="quizStep1">
+        <div class="quiz-progress"><div class="quiz-dot filled"></div><div class="quiz-dot"></div><div class="quiz-dot"></div><div class="quiz-dot"></div><div class="quiz-dot"></div></div>
+        <h3 style="font-family:var(--font-display);font-size:1.25rem;font-weight:800;color:#0d1b3e;margin:0 0 20px;line-height:1.3;">1. What is your main goal for your smile?</h3>
+        <button class="quiz-opt" onclick="recordAnswer(1, 'Implants'); nextQuizStep(2)">Replace missing teeth</button>
+        <button class="quiz-opt" onclick="recordAnswer(1, 'Whitening'); nextQuizStep(2)">Whiten discolored teeth</button>
+        <button class="quiz-opt" onclick="recordAnswer(1, 'Braces'); nextQuizStep(2)">Straighten crooked teeth</button>
+        <button class="quiz-opt" onclick="recordAnswer(1, 'General'); nextQuizStep(2)">General checkup & cleaning</button>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="quiz-step" id="quizStep2">
+        <div class="quiz-progress"><div class="quiz-dot filled"></div><div class="quiz-dot filled"></div><div class="quiz-dot"></div><div class="quiz-dot"></div><div class="quiz-dot"></div></div>
+        <h3 style="font-family:var(--font-display);font-size:1.25rem;font-weight:800;color:#0d1b3e;margin:0 0 20px;line-height:1.3;">2. Are you currently experiencing any pain or discomfort?</h3>
+        <button class="quiz-opt" onclick="recordAnswer(2, 'Pain'); nextQuizStep(3)">Yes, frequent pain/sensitivity</button>
+        <button class="quiz-opt" onclick="recordAnswer(2, 'Mild'); nextQuizStep(3)">Only sometimes</button>
+        <button class="quiz-opt" onclick="recordAnswer(2, 'No'); nextQuizStep(3)">No, just looking for improvements</button>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="quiz-step" id="quizStep3">
+        <div class="quiz-progress"><div class="quiz-dot filled"></div><div class="quiz-dot filled"></div><div class="quiz-dot filled"></div><div class="quiz-dot"></div><div class="quiz-dot"></div></div>
+        <h3 style="font-family:var(--font-display);font-size:1.25rem;font-weight:800;color:#0d1b3e;margin:0 0 20px;line-height:1.3;">3. When was your last visit to a dentist?</h3>
+        <button class="quiz-opt" onclick="recordAnswer(3, 'Recent'); nextQuizStep(4)">Within the last 6 months</button>
+        <button class="quiz-opt" onclick="recordAnswer(3, '1yr'); nextQuizStep(4)">1 to 2 years ago</button>
+        <button class="quiz-opt" onclick="recordAnswer(3, 'Long'); nextQuizStep(4)">More than 2 years ago</button>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="quiz-step" id="quizStep4">
+        <div class="quiz-progress"><div class="quiz-dot filled"></div><div class="quiz-dot filled"></div><div class="quiz-dot filled"></div><div class="quiz-dot filled"></div><div class="quiz-dot"></div></div>
+        <h3 style="font-family:var(--font-display);font-size:1.25rem;font-weight:800;color:#0d1b3e;margin:0 0 20px;line-height:1.3;">4. How quickly are you looking to start treatment?</h3>
+        <button class="quiz-opt" onclick="recordAnswer(4, 'ASAP'); nextQuizStep(5)">As soon as possible</button>
+        <button class="quiz-opt" onclick="recordAnswer(4, 'Month'); nextQuizStep(5)">Within the next month</button>
+        <button class="quiz-opt" onclick="recordAnswer(4, 'Exploring'); nextQuizStep(5)">Just exploring my options for now</button>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="quiz-step" id="quizStep5">
+        <div class="quiz-progress"><div class="quiz-dot filled"></div><div class="quiz-dot filled"></div><div class="quiz-dot filled"></div><div class="quiz-dot filled"></div><div class="quiz-dot filled"></div></div>
+        <h3 style="font-family:var(--font-display);font-size:1.25rem;font-weight:800;color:#0d1b3e;margin:0 0 20px;line-height:1.3;">5. Would you prefer options that focus on fast results or long-term durability?</h3>
+        <button class="quiz-opt" onclick="recordAnswer(5, 'Fast'); showQuizResults()">Fast results (e.g. instant whitening)</button>
+        <button class="quiz-opt" onclick="recordAnswer(5, 'Durability'); showQuizResults()">Long-term durability (e.g. implants)</button>
+        <button class="quiz-opt" onclick="recordAnswer(5, 'Both'); showQuizResults()">A balance of both</button>
+      </div>
+
+      <!-- STEP 6: RESULT -->
+      <div class="quiz-step" id="quizStep6" style="text-align:center;">
+        <div style="width:64px;height:64px;background:linear-gradient(135deg, #0d9488, #34d399);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#fff;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:#0d1b3e;margin:0 0 8px;">Your Assessment is Complete!</h3>
+        <p style="font-size:0.95rem;color:#64748b;line-height:1.6;margin:0 0 12px;">Based on your answers, we recommend a consultation for:</p>
+        <div id="quizResultText" style="font-size:1.1rem;font-weight:700;color:#1a4fa0;background:rgba(26,79,160,0.08);padding:14px;border-radius:12px;margin-bottom:24px;border:1px dashed rgba(26,79,160,0.3);">
+          <!-- Dynamic Result -->
+        </div>
+        <a href="appointment.html" id="quizBookBtn" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;font-size:1.05rem;margin-bottom:12px;">Book Free Consultation</a>
+        <a href="tel:+919894549244" class="btn btn-outline" style="width:100%;justify-content:center;padding:14px;font-size:1.05rem;">Call Us Now</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let quizAnswers = {};
+
+    function closeWelcomePopup() {
+      const popup = document.getElementById('welcomePopup');
+      popup.style.opacity = '0';
+      document.getElementById('welcomePopupContent').style.transform = 'scale(0.95)';
+      setTimeout(() => { popup.style.display = 'none'; }, 400);
+    }
+
+    function nextQuizStep(step) {
+      document.querySelectorAll('.quiz-step').forEach(el => el.classList.remove('active'));
+      document.getElementById('quizStep' + step).classList.add('active');
+    }
+
+    function recordAnswer(q, val) {
+      quizAnswers[q] = val;
+    }
+
+    function showQuizResults() {
+      nextQuizStep(6);
+      let recommendation = "Comprehensive Smile Evaluation";
+      let treatmentParam = "General Checkup";
+      
+      if (quizAnswers[2] === 'Pain') {
+        recommendation = "Priority Checkup & Root Canal Exam";
+        treatmentParam = "Root Canal";
+      } else if (quizAnswers[1] === 'Implants') {
+        recommendation = "Dental Implants & Restoration";
+        treatmentParam = "Dental Implants";
+      } else if (quizAnswers[1] === 'Whitening') {
+        recommendation = "Laser Teeth Whitening";
+        treatmentParam = "Teeth Whitening";
+      } else if (quizAnswers[1] === 'Braces') {
+        recommendation = "Orthodontic Treatment (Braces)";
+        treatmentParam = "Orthodontics";
+      }
+      
+      document.getElementById('quizResultText').innerText = recommendation;
+      document.getElementById('quizBookBtn').href = "appointment.html?treatment=" + encodeURIComponent(treatmentParam);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const popup = document.getElementById('welcomePopup');
+        popup.style.display = 'flex';
+        void popup.offsetHeight; 
+        popup.style.opacity = '1';
+        document.getElementById('welcomePopupContent').style.transform = 'scale(1)';
+      }, 1500);
+    });
+  </script>
   <!-- ═══════════════ MOBILE BOTTOM NAV ═══════════════ -->
   <nav class="mobile-bottom-nav">
     <a href="index.html" class="mb-nav-item active">
@@ -1993,6 +1973,47 @@
       <span class="mb-label">WhatsApp</span>
     </a>
   </nav>
+  <!-- ═══════════════ DESKTOP FLOATING WHATSAPP ═══════════════ -->
+  <style>
+    .floating-wa {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      z-index: 9999;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+    }
+    .floating-wa:hover {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
+      color: white;
+    }
+    .floating-wa svg {
+      width: 34px;
+      height: 34px;
+      fill: currentColor;
+    }
+    @media (max-width: 768px) {
+      .floating-wa {
+        display: none !important;
+      }
+    }
+  </style>
+  <a href="https://wa.me/919894549244" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+    </svg>
+  </a>
+
 </body>
 
 

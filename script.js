@@ -420,39 +420,44 @@ function initSmileGallery() {
   // CSS filters create the visual "before" look on the left side.
   const galleryData = {
     'smile-makeover': {
-      src: 'images/treatments/Smile Designing Treatment.jpg',
+      beforeSrc: 'images/before and after/smile_makeover_before.png',
+      afterSrc: 'images/before and after/smile_makeover_after.png',
       title: 'Complete Smile Makeover',
       desc: 'Full mouth rehabilitation with implants and porcelain crowns — see the dramatic before & after difference.',
-      beforeFilter: 'grayscale(0.6) sepia(0.4) brightness(0.75) contrast(1.05)',
-      afterFilter: 'brightness(1.08) contrast(1.08) saturate(1.15)'
+      beforeFilter: 'none',
+      afterFilter: 'none'
     },
     'teeth-whitening': {
-      src: 'images/treatments/Teeth cleaning Treatment.webp',
+      beforeSrc: 'images/before and after/teeth_whitening_before.png',
+      afterSrc: 'images/before and after/teeth_whitening_after.png',
       title: 'Laser Teeth Whitening',
       desc: 'In-office laser whitening that brightened teeth by up to 8 shades in a single session.',
-      beforeFilter: 'sepia(0.6) saturate(1.4) hue-rotate(-15deg) brightness(0.8) contrast(1.1)',
-      afterFilter: 'brightness(1.12) saturate(1.2) contrast(1.05)'
+      beforeFilter: 'none',
+      afterFilter: 'none'
     },
     'dental-implants': {
-      src: 'images/treatments/Dental Implants.webp',
+      beforeSrc: 'images/before and after/dental_implants_before.png',
+      afterSrc: 'images/before and after/dental_implants_after.png',
       title: 'Dental Implants',
       desc: 'Premium titanium implants restoring a natural, confident smile where teeth were missing.',
-      beforeFilter: 'grayscale(0.7) brightness(0.75) contrast(1.1)',
-      afterFilter: 'brightness(1.05) saturate(1.1)'
+      beforeFilter: 'none',
+      afterFilter: 'none'
     },
     'invisalign': {
-      src: 'images/treatments/ortodoncia invisible.jpg',
+      beforeSrc: 'images/before and after/Invisalign Treatment before.jpeg',
+      afterSrc: 'images/before and after/Invisalign Treatment after.jpeg',
       title: 'Invisalign Treatment',
       desc: 'Clear aligner therapy correcting crowding and bite issues — nearly invisible throughout.',
-      beforeFilter: 'grayscale(0.5) sepia(0.2) brightness(0.82) contrast(1.05)',
-      afterFilter: 'brightness(1.06) saturate(1.1)'
+      beforeFilter: 'none',
+      afterFilter: 'none'
     },
     'orthodontics': {
-      src: 'images/treatments/metal-braces.webp',
+      beforeSrc: 'images/before and after/braces_before.png',
+      afterSrc: 'images/before and after/braces_after.png',
       title: 'Orthodontic Treatment',
       desc: 'Traditional braces for comprehensive teeth alignment and bite correction.',
-      beforeFilter: 'grayscale(0.55) sepia(0.15) brightness(0.8) contrast(1.05)',
-      afterFilter: 'brightness(1.05) saturate(1.1)'
+      beforeFilter: 'none',
+      afterFilter: 'none'
     }
   };
 
@@ -472,10 +477,10 @@ function initSmileGallery() {
   // Apply filters to loaded images
   function applyData(data, animate) {
     const doSwap = () => {
-      beforeImg.src = data.src;
-      afterImg.src = data.src;
-      beforeImg.style.filter = data.beforeFilter;
-      afterImg.style.filter = data.afterFilter;
+      beforeImg.src = data.beforeSrc || data.src;
+      afterImg.src = data.afterSrc || data.src;
+      beforeImg.style.filter = data.beforeFilter || 'none';
+      afterImg.style.filter = data.afterFilter || 'none';
       titleEl.textContent = data.title;
       descEl.textContent = data.desc;
       updateSlider(50);
