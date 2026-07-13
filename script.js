@@ -740,8 +740,6 @@ const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwVXpjZjVdqZP
 
 const appointmentForm = document.getElementById("appointment-form");
 const submitBtn = document.getElementById("appt-submit-btn");
-const thankYouPopup = document.getElementById("thankYouPopup");
-const closePopupBtn = document.getElementById("closePopupBtn");
 
 if (appointmentForm) {
   appointmentForm.addEventListener("submit", function (e) {
@@ -764,11 +762,7 @@ if (appointmentForm) {
       .then(response => response.json())
       .then(data => {
           if (data.result === "success") {
-              if (thankYouPopup) {
-                thankYouPopup.classList.add('active');
-              } else {
-                alert("Appointment Booked Successfully!");
-              }
+              alert("Appointment Booked Successfully!");
               appointmentForm.reset();
           } else {
               alert("Booking Failed!");
@@ -784,15 +778,4 @@ if (appointmentForm) {
           submitBtn.innerHTML = "Confirm Appointment";
       });
   });
-
-  if (closePopupBtn && thankYouPopup) {
-    closePopupBtn.addEventListener('click', () => {
-      thankYouPopup.classList.remove('active');
-    });
-    thankYouPopup.addEventListener('click', (e) => {
-      if (e.target === thankYouPopup) {
-        thankYouPopup.classList.remove('active');
-      }
-    });
-  }
 }
