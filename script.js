@@ -734,3 +734,65 @@ function initBlogSlider() {
   goTo(0);
   startAuto();
 }
+
+/* Booking Form Logic */
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwVXpjZjVdqZPIvNfpcW06R8WDnGCKLVXvnJy_5BAGO8DehYt836Pt9ZdcZo0_Hf_eRbg/exec";
+
+const appointmentForm = document.getElementById("appointment-form");
+const submitBtn = document.getElementById("appt-submit-btn");
+const thankYouPopup = document.getElementById("thankYouPopup");
+const closePopupBtn = document.getElementById("closePopupBtn");
+
+if (appointmentForm) {
+  appointmentForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (!appointmentForm.checkValidity()) {
+        appointmentForm.reportValidity();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = "Submitting...";
+
+      const formData = new FormData(appointmentForm);
+
+      fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          body: new URLSearchParams(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.result === "success") {
+              if (thankYouPopup) {
+                thankYouPopup.classList.add('active');
+              } else {
+                alert("Appointment Booked Successfully!");
+              }
+              appointmentForm.reset();
+          } else {
+              alert("Booking Failed!");
+              console.log(data);
+          }
+      })
+      .catch(error => {
+          console.error(error);
+          alert("Something went wrong!");
+      })
+      .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = "Confirm Appointment";
+      });
+  });
+
+  if (closePopupBtn && thankYouPopup) {
+    closePopupBtn.addEventListener('click', () => {
+      thankYouPopup.classList.remove('active');
+    });
+    thankYouPopup.addEventListener('click', (e) => {
+      if (e.target === thankYouPopup) {
+        thankYouPopup.classList.remove('active');
+      }
+    });
+  }
+}

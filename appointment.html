@@ -14,7 +14,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=4.0" />
+  <link rel="stylesheet" href="style.css?v=4.1" />
 </head>
 
 <body>
@@ -195,14 +195,14 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                       Full Name <span class="req">*</span>
                     </label>
-                    <input type="text" id="f-name" name="name" placeholder="Your full name" required autocomplete="name" />
+                    <input type="text" id="f-name" name="Full Name" placeholder="Your full name" required autocomplete="name" />
                   </div>
                   <div class="appt-form-group">
                     <label for="f-phone">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                       Phone Number <span class="req">*</span>
                     </label>
-                    <input type="tel" id="f-phone" name="phone" placeholder="+91 00000 00000" required autocomplete="tel" />
+                    <input type="tel" id="f-phone" name="Phone Number" placeholder="+91 00000 00000" required autocomplete="tel" />
                   </div>
                 </div>
 
@@ -212,56 +212,53 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                       Preferred Date
                     </label>
-                    <input type="date" id="f-date" name="date" />
+                    <input type="date" id="f-date" name="Preferred Date" required />
                   </div>
                   <div class="appt-form-group">
                     <label for="f-time">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                       Preferred Time
                     </label>
-                    <select id="f-time" name="time">
-                      <option value="" disabled selected>Select time slot...</option>
-                      <option value="9:30">9:30 AM</option>
-                      <option value="10:00">10:00 AM</option>
-                      <option value="10:30">10:30 AM</option>
-                      <option value="11:00">11:00 AM</option>
-                      <option value="11:30">11:30 AM</option>
-                      <option value="12:00">12:00 PM</option>
-                      <option value="14:00">2:00 PM</option>
-                      <option value="14:30">2:30 PM</option>
-                      <option value="15:00">3:00 PM</option>
-                      <option value="15:30">3:30 PM</option>
-                      <option value="16:00">4:00 PM</option>
-                      <option value="17:00">5:00 PM</option>
-                      <option value="18:00">6:00 PM</option>
-                      <option value="19:00">7:00 PM</option>
+                    <select id="f-time" name="Preferred Time" required>
+                      <option value="">Select time slot</option>
+                      <option>9:30 AM</option>
+                      <option>10:30 AM</option>
+                      <option>11:30 AM</option>
+                      <option>12:30 PM</option>
+                      <option>1:30 PM</option>
+                      <option>2:30 PM</option>
+                      <option>3:30 PM</option>
+                      <option>4:30 PM</option>
+                      <option>5:30 PM</option>
+                      <option>6:30 PM</option>
+                      <option>7:30 PM</option>
+                      <option>8:30 PM</option>
                     </select>
                   </div>
                 </div>
 
                 <div class="appt-form-group full-width">
-                  <label for="f-treatment">
+                  <label for="service">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                     Service Needed <span class="req">*</span>
                   </label>
-                  <select id="f-treatment" name="treatment" required>
-                    <option value="" disabled selected>Select a service...</option>
-                    <option value="invisalign">Invisalign Treatment</option>
-                    <option value="laser">Laser Gum Treatment</option>
-                    <option value="braces">Braces Treatment</option>
-                    <option value="rootcanal">Root Canal Treatment</option>
-                    <option value="3d-scan">3D Intraoral Scanning</option>
-                    <option value="implants">Dental Implants</option>
-                    <option value="extraction">Tooth Extraction</option>
-                    <option value="surgery">Oral Surgery</option>
-                    <option value="filling">Tooth Filling</option>
-                    <option value="cleaning">Teeth Cleaning</option>
-                    <option value="dentures">Dentures</option>
-                    <option value="crown">Dental Crown</option>
-                    <option value="smile-designing">Smile Designing</option>
-                    <option value="pediatric">Pediatric Dentistry</option>
-                    <option value="online-consultation">Online Consultation</option>
-                    <option value="other">Other / General Checkup</option>
+                  <select name="Service Needed" id="service" required>
+                    <option value="">Select a Service</option>
+                    <option value="Invisalign Treatment">Invisalign Treatment</option>
+                    <option value="Braces Treatment">Braces Treatment</option>
+                    <option value="Laser Gum Treatment">Laser Gum Treatment</option>
+                    <option value="Root Canal Treatment">Root Canal Treatment</option>
+                    <option value="3D Intraoral Scanning">3D Intraoral Scanning</option>
+                    <option value="Dental Implants Treatment">Dental Implants Treatment</option>
+                    <option value="Tooth Extraction and Impaction Treatment">Tooth Extraction and Impaction Treatment</option>
+                    <option value="Oral Surgery Treatment">Oral Surgery Treatment</option>
+                    <option value="Tooth Filling Treatment">Tooth Filling Treatment</option>
+                    <option value="Teeth Cleaning Treatment">Teeth Cleaning Treatment</option>
+                    <option value="Dentures Treatment">Dentures Treatment</option>
+                    <option value="Dentures & Crowns Treatment">Dentures & Crowns Treatment</option>
+                    <option value="Smile Designing Treatment">Smile Designing Treatment</option>
+                    <option value="Pediatric Dentistry Treatment">Pediatric Dentistry Treatment</option>
+                    <option value="Online Consultation">Online Consultation</option>
                   </select>
                 </div>
 
@@ -270,7 +267,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     Additional Message
                   </label>
-                  <textarea id="f-message" name="message" rows="3" placeholder="Any specific concerns or questions? Let us know..."></textarea>
+                  <textarea id="f-message" name="Additional Message" rows="3" placeholder="Any specific concerns or questions? Let us know..."></textarea>
                 </div>
 
                 <div class="appt-form-notice">
@@ -800,7 +797,20 @@
       <span class="mb-label">WhatsApp</span>
     </a>
   </nav>
+  <!-- Thank You Popup -->
+  <div class="popup-overlay" id="thankYouPopup">
+    <div class="popup-content">
+      <div class="popup-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="48" height="48">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      <h2>Thank You!</h2>
+      <p>Your appointment booking request has been submitted successfully. Our team will contact you shortly to confirm your schedule.</p>
+      <button class="btn btn-primary popup-close-btn" id="closePopupBtn">Close</button>
+    </div>
+  </div>
 </body>
-
 
 </html>
